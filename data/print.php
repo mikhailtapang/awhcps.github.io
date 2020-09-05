@@ -19,7 +19,7 @@ if(isset($_GET['choice'])){
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>AWH Vehicle Inventory and Ticketing System</title>
+    <title>AWH Vehicle Management System</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
@@ -32,7 +32,7 @@ if(isset($_GET['choice'])){
 
 
 <center>
-    <h2>AWH Vehicle Inventory and Ticketing System</h2>
+    <h2>AWH Vehicle Management System</h2>
     <h3>as of</h3>
     <h3><?= date('m-d-Y'); ?></h3>
 </center>
