@@ -37,6 +37,7 @@ $(document).on('submit', '#add-item-form', function(event) {
 	/* Act on the event */
 	var validate = '';
 	var form_data = new Array(
+								$('input[id=AcctNo]'),
 								$('input[id=itemname]'),
 								$('input[id=serialNumber]'),
 								$('input[id=modelNumber]'),
