@@ -2,20 +2,20 @@
 require_once('../class/Item.php');
 if(isset($_POST['data'])){
 	$data = json_decode($_POST['data'], true);
-
 	
-	$iN  = $data[0]; 		
-	$sN  = $data[1];	
-	$mN  = $data[2];	
-	$b   = $data[3]; 			
-	$a   = $data[4]; 			
-	$pD  = $data[5]; 		
-	$eID = $data[6]; 		
-	$cID = $data[7]; 			
-	$coID= $data[8]; 
-	$iID = $data[9];
+	$account_number = $data[0]; 
+	$iN  = $data[1]; 		
+	$sN  = $data[2];	
+	$mN  = $data[3];	
+	$b   = $data[4]; 			
+	$a   = $data[5]; 			
+	$pD  = $data[6]; 		
+	$eID = $data[7]; 		
+	$cID = $data[8]; 			
+	$coID= $data[9]; 
+	$iID = $data[10];
 
-	$result['valid'] = $item->update_item($iN, $sN, $mN, $b, $a, $pD, $eID, $cID, $coID, $iID);
+	$result['valid'] = $item->update_item($account_number, $iN, $sN, $mN, $b, $a, $pD, $eID, $cID, $coID, $iID);
 	if($result['valid']){
 		$result['msg'] = 'Data Updated Successfully!';
 		echo json_encode($result);

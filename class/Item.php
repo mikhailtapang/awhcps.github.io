@@ -7,19 +7,20 @@ class Item extends Database implements iItem{
 		parent:: __construct();
 	}
 
-	public function insert_item($iN, $sN, $mN, $b, $a, $pD, $eID, $cID, $coID)
+	public function insert_item($account_number, $iN, $sN, $mN, $b, $a, $pD, $eID, $cID, $coID)
 	{
-		$sql = "INSERT INTO tbl_item(item_name, item_serno, item_modno, item_brand, item_amount, item_purdate, emp_id, cat_id, con_id)
-				VALUES(?,?,?,?,?,?,?,?,?);
+		$sql = "INSERT INTO tbl_item(account_number, item_name, item_serno, item_modno, item_brand, item_amount, item_purdate, emp_id, cat_id, con_id)
+				VALUES(?,?,?,?,?,?,?,?,?,?);
 		";
-		$result = $this->insertRow($sql, [$iN, $sN, $mN, $b, $a, $pD, $eID, $cID, 1]);
+		$result = $this->insertRow($sql, [$account_number, $iN, $sN, $mN, $b, $a, $pD, $eID, $cID, 1]);
 		return $result;
 	}
 
-	public function update_item($iN, $sN, $mN, $b, $a, $pD, $eID, $cID, $coID, $iID)
+	public function update_item($account_number, $iN, $sN, $mN, $b, $a, $pD, $eID, $cID, $coID, $iID)
 	{	
 		$sql="UPDATE tbl_item
 			  SET 
+			  account_number = ?, 
 			  item_name = ?, 
 			  item_serno = ?, 
 			  item_modno = ?, 
@@ -31,7 +32,7 @@ class Item extends Database implements iItem{
 			  con_id = ?
 			  WHERE item_id = ?
 		";
-		$result = $this->updateRow($sql, [$iN, $sN, $mN, $b, $a, $pD, $eID, $cID, $coID, $iID]);
+		$result = $this->updateRow($sql, [$account_number, $iN, $sN, $mN, $b, $a, $pD, $eID, $cID, $coID, $iID]);
 		return $result;
 	}
 
