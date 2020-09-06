@@ -12,7 +12,7 @@ include_once('../include/header.php'); ?>
         </li>
      
   	    <li>
-          <a href="item.php"><span class="glyphicon glyphicon-object-align-vertical"></span> Item</a>
+          <a href="item.php"><span class="glyphicon glyphicon-object-align-vertical"></span> Vehicles</a>
         </li>
   	    
   	   <!--  <li class="active">
