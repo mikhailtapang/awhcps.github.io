@@ -32,7 +32,7 @@ $allItem = $item->get_all_items();
 
 		?>
 			<tr>
-				<td onclick="item_profile('<?php echo $i['item_id']; ?>');"><?php echo $i['acct_no']; ?></td>
+				<td onclick="item_profile('<?php echo $i['item_id']; ?>');"><?php echo $i['account_number']; ?></td>
 				<td onclick="item_profile('<?php echo $i['item_id']; ?>');"><?php echo $i['item_name']; ?></td>
 				<td onclick="item_profile('<?php echo $i['item_id']; ?>');"><?php echo $i['item_amount']; ?></td>
 				<!-- <td onclick="item_profile('<?php echo $i['item_id']; ?>');"><?php echo $fullName; ?></td> -->

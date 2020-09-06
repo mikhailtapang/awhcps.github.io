@@ -9,6 +9,12 @@
 				<form class="form-horizontal" role="form" id="update-item-form">
 					<input type="hidden" id="iID">
 					  <div class="form-group">
+					    <label class="control-label col-sm-3">Account Number:</label>
+					    <div class="col-sm-9">
+					      <input type="text" class="form-control account-name" disabled placeholder="Account Number" autofocus>
+					    </div>
+					  </div>
+					  <div class="form-group">
 					    <label class="control-label col-sm-3">Plate Number:</label>
 					    <div class="col-sm-9">
 					      <input type="text" class="form-control item-name" disabled placeholder="Enter Item Name" autofocus>

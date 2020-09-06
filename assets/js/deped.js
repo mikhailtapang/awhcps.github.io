@@ -37,7 +37,7 @@ $(document).on('submit', '#add-item-form', function(event) {
 	/* Act on the event */
 	var validate = '';
 	var form_data = new Array(
-								$('input[id=AcctNo]'),
+								$('input[id=accountNumber]'),
 								$('input[id=itemname]'),
 								$('input[id=serialNumber]'),
 								$('input[id=modelNumber]'),
@@ -51,6 +51,8 @@ $(document).on('submit', '#add-item-form', function(event) {
 	
 	var data = new Array(form_data.length);
 
+	// console.log('Data: ', data);
+	
 	for(var i = 0; i < form_data.length; i++){
 		if(form_data[i].val().length == 0){
 			form_data[i].parent().parent().addClass('has-error');
@@ -61,7 +63,7 @@ $(document).on('submit', '#add-item-form', function(event) {
 		}
 	}
 
-	if(validate == '012345678'){
+	if(validate == '0123456789'){
 		$.ajax({
 			url: '../data/addItem.php',
 			type: 'post',
@@ -120,7 +122,8 @@ function item_profile(iID)
 			iID: iID
 		},
 		success: function(event){
-			// console.log(event);
+			console.log(event);
+			$('.account-number').val(event.account_number);
 			$('.item-name').val(event.item_name);
 			$('.item-brand').val(event.item_brand);
 			$('.item-serial').val(event.item_serno);
