@@ -12,11 +12,11 @@ include_once('../include/header.php'); ?>
         </li>
      
   	    <li>
-          <a href="item.php"><span class="glyphicon glyphicon-object-align-vertical"></span> Item
+          <a href="item.php"><span class="glyphicon glyphicon-object-align-vertical"></span> Vehicle
           </a>
         </li>
   	    
-  	    <li>
+<!--   	    <li>
           <a href="employee.php"><span class="glyphicon glyphicon-user"></span> Employee</a>
         </li>
 
@@ -26,7 +26,7 @@ include_once('../include/header.php'); ?>
 
         <li>
           <a href="office.php"><span class="glyphicon glyphicon-home"></span> Office</a>
-        </li>
+        </li> -->
 
   	    <li class="active">
           <a href="request.php"><span class="glyphicon glyphicon-tags"></span> Request</a>
