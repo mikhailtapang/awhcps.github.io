@@ -17,23 +17,29 @@ class Item extends Database implements iItem{
 		return $result;
 	}
 
-	public function update_item($account_number, $iN, $sN, $mN, $b, $a, $pD, $eID, $cID, $coID, $iID)
+	public function update_item($account_number, $owner_address, $iN, $sN, $mN, $b, $a, $rfid_code, $sticker_type, 
+		$sticker_number, $pD, $eID, $cID, $coID, $iID)
 	{	
 		$sql="UPDATE tbl_item
 			  SET 
 			  account_number = ?, 
+			  owner_address = ?, 
 			  item_name = ?, 
 			  item_serno = ?, 
 			  item_modno = ?, 
 			  item_brand = ?, 
 			  item_amount = ?, 
+			  rfid_code = ?,
+			  vehicle_sticker_type = ?, 
+			  vehicle_sticker_number = ?, 
 			  item_purdate = ?, 	
 			  emp_id = ?, 
 			  cat_id = ?, 
 			  con_id = ?
 			  WHERE item_id = ?
 		";
-		$result = $this->updateRow($sql, [$account_number, $iN, $sN, $mN, $b, $a, $pD, $eID, $cID, $coID, $iID]);
+		$result = $this->updateRow($sql, [$account_number, $owner_address, $iN, $sN, $mN, $b, $a, $rfid_code, $sticker_type, 
+		$sticker_number, $pD, $eID, $cID, $coID, $iID]);
 		return $result;
 	}
 

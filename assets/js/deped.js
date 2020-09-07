@@ -43,10 +43,10 @@ $(document).on('submit', '#add-item-form', function(event) {
 								$('input[id=serialNumber]'),
 								$('input[id=modelNumber]'),
 								$('input[id=brand]'),
+								$('input[id=amount]'),
 								$('input[id=rfidCode]'),
 								$('input[id=stickerType]'),
 								$('input[id=stickerNumber]'),								
-								$('input[id=amount]'),
 								$('input[id=purDate]'),
 								$('#empID'),
 								$('#catID'),
@@ -165,11 +165,16 @@ function fill_update_modal(iID){
 			dataType: 'json',
 			data: { iID: iID},
 			success: function (data) {
+				$('#accountNumber-update').val(data.account_number);
+				$('#ownerAddress-update').val(data.owner_address);
 				$('#itemName-update').val(data.item_name);
 				$('#serialNumber-update').val(data.item_serno);
 				$('#modelNumber-update').val(data.item_modno);
 				$('#brand-update').val(data.item_brand);
 				$('#amount-update').val(data.item_amount);
+				$('#rfidCode-update').val(data.rfid_code);
+				$('#stickerType-update').val(data.vehicle_sticker_type);
+				$('#stickerNumber-update').val(data.vehicle_sticker_number);
 				$('#purDate-update').val(data.item_purdate);
 				$('#empID-update').val(data.emp_id);
 				$('#catID-update').val(data.cat_id);
@@ -192,11 +197,16 @@ $(document).on('submit', '#update-item-form', function(event) {
 	/* Act on the event */
 	var validate = '';
 	var form_data = new Array(
+								$('input[id=accountNumber-update]'), 
+								$('input[id=ownerAddress-update]'), 
 								$('input[id=itemName-update]'), 
 								$('input[id=serialNumber-update]'), 
 								$('input[id=modelNumber-update]'), 
 								$('input[id=brand-update]'), 
 								$('input[id=amount-update]'), 
+								$('input[id=rfidCode-update]'),
+								$('input[id=stickerType-update]'),
+								$('input[id=stickerNumber-update]'),
 								$('input[id=purDate-update]'),
 								$('#empID-update'),
 								$('#catID-update'),
@@ -216,7 +226,7 @@ $(document).on('submit', '#update-item-form', function(event) {
 	}
 
 
-	if(validate == '0123456789'){
+	if(validate == '01234567891011121314'){
 		$.ajax({
 				url: '../data/update_item.php',
 				type: 'post',
