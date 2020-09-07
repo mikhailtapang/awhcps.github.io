@@ -10,14 +10,17 @@ if(isset($_POST['data'])){
 	$mN = $data[4];
 	$b = ucwords($data[5]);
 	$a = $data[6];
-	$pD = $data[7];
-	$eID = $data[8];
-	$cID = $data[9];
-	$coID = $data[10];
+	$rfid_code = $data[7];
+	$sticker_type = $data[8];
+	$sticker_number = $data[9];
+	$pD = $data[10];
+	$eID = $data[11];
+	$cID = $data[12];
+	$coID = $data[13];
 
 
 	// $result = $item->insert_item($account_number, $owner_address, $iN, $sN, $mN, $b, $a, $pD, $eID, $cID, $coID);
-	$result['valid'] = $item->insert_item($account_number, $owner_address, $iN, $sN, $mN, $b, $a, $pD, $eID, $cID, $coID);
+	$result['valid'] = $item->insert_item($account_number, $owner_address, $iN, $sN, $mN, $b, $a, $rfid_code, $sticker_type, $sticker_number, $pD, $eID, $cID, $coID);
 	if($result['valid']){
 		$result['msg'] = "Item Added Successfully!";
 		$result['action'] = "Add Data";

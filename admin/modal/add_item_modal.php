@@ -65,6 +65,27 @@ $conditions = $item->item_conditions();
 					    <div class="col-sm-9"> 
 					      <input type="text" class="form-control" id="amount" placeholder="Enter Owner">
 					    </div>
+					  </div>
+
+					  <div class="form-group">
+					    <label class="control-label col-sm-3" for="rfidCode">RFID Code:</label>
+					    <div class="col-sm-9"> 
+					      <input type="text" class="form-control" id="rfidCode" placeholder="Enter RFID code">
+					    </div>
+					  </div>
+
+					  <div class="form-group">
+					    <label class="control-label col-sm-3" for="stickerType">Parking sticker type:</label>
+					    <div class="col-sm-9"> 
+					      <input type="text" class="form-control" id="stickerType" placeholder="Enter sticker type">
+					    </div>
+					  </div>	
+
+					  <div class="form-group">
+					    <label class="control-label col-sm-3" for="stickerNumber">Parking sticker number:</label>
+					    <div class="col-sm-9"> 
+					      <input type="text" class="form-control" id="stickerNumber" placeholder="Enter sticker number">
+					    </div>
 					  </div>		
 
 					   <div class="form-group">
