@@ -4,19 +4,20 @@ if(isset($_POST['data'])){
 	$data = json_decode($_POST['data'], true);
 
 	$account_number = $data[0];
-	$iN = ucwords($data[1]);
-	$sN = $data[2];
-	$mN = $data[3];
-	$b = ucwords($data[4]);
-	$a = $data[5];
-	$pD = $data[6];
-	$eID = $data[7];
-	$cID = $data[8];
-	$coID = $data[9];
+	$owner_address = $data[1];
+	$iN = ucwords($data[2]);
+	$sN = $data[3];
+	$mN = $data[4];
+	$b = ucwords($data[5]);
+	$a = $data[6];
+	$pD = $data[7];
+	$eID = $data[8];
+	$cID = $data[9];
+	$coID = $data[10];
 
 
-	// $result = $item->insert_item($account_number, $iN, $sN, $mN, $b, $a, $pD, $eID, $cID, $coID);
-	$result['valid'] = $item->insert_item($account_number, $iN, $sN, $mN, $b, $a, $pD, $eID, $cID, $coID);
+	// $result = $item->insert_item($account_number, $owner_address, $iN, $sN, $mN, $b, $a, $pD, $eID, $cID, $coID);
+	$result['valid'] = $item->insert_item($account_number, $owner_address, $iN, $sN, $mN, $b, $a, $pD, $eID, $cID, $coID);
 	if($result['valid']){
 		$result['msg'] = "Item Added Successfully!";
 		$result['action'] = "Add Data";

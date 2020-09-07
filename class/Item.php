@@ -7,12 +7,12 @@ class Item extends Database implements iItem{
 		parent:: __construct();
 	}
 
-	public function insert_item($account_number, $iN, $sN, $mN, $b, $a, $pD, $eID, $cID, $coID)
+	public function insert_item($account_number, $owner_address, $iN, $sN, $mN, $b, $a, $pD, $eID, $cID, $coID)
 	{
-		$sql = "INSERT INTO tbl_item(account_number, item_name, item_serno, item_modno, item_brand, item_amount, item_purdate, emp_id, cat_id, con_id)
-				VALUES(?,?,?,?,?,?,?,?,?,?);
+		$sql = "INSERT INTO tbl_item(account_number, owner_address, item_name, item_serno, item_modno, item_brand, item_amount, item_purdate, emp_id, cat_id, con_id)
+				VALUES(?,?,?,?,?,?,?,?,?,?,?);
 		";
-		$result = $this->insertRow($sql, [$account_number, $iN, $sN, $mN, $b, $a, $pD, $eID, $cID, 1]);
+		$result = $this->insertRow($sql, [$account_number, $owner_address, $iN, $sN, $mN, $b, $a, $pD, $eID, $cID, 1]);
 		return $result;
 	}
 

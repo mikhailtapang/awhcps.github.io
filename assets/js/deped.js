@@ -38,6 +38,7 @@ $(document).on('submit', '#add-item-form', function(event) {
 	var validate = '';
 	var form_data = new Array(
 								$('input[id=accountNumber]'),
+								$('input[id=ownerAddress]'),
 								$('input[id=itemname]'),
 								$('input[id=serialNumber]'),
 								$('input[id=modelNumber]'),
@@ -49,8 +50,10 @@ $(document).on('submit', '#add-item-form', function(event) {
 								$('#conID')
 							);
 	
+	console.log('form_data: ', form_data);
 	var data = new Array(form_data.length);
 
+	console.log('data: ', data);
 	// console.log('Data: ', data);
 	
 	for(var i = 0; i < form_data.length; i++){
@@ -62,8 +65,8 @@ $(document).on('submit', '#add-item-form', function(event) {
 			validate += i;
 		}
 	}
-
-	if(validate == '0123456789'){
+	console.log('validate: ', validate);
+	if(validate == '012345678910'){
 		$.ajax({
 			url: '../data/addItem.php',
 			type: 'post',
@@ -72,16 +75,21 @@ $(document).on('submit', '#add-item-form', function(event) {
 				data: JSON.stringify(data)
 			},
 			success: function(event){
+
+				//console.log(result)
 				if(event.valid == valid){
-					$('#modal-add-item').modal('hide');
+					$('#modal-add-item').modal('hidden');
 					$('#add-item-form').trigger('reset');
 					$('#modal-message-box').modal('show');
-					$('#modal-message-box').find('.modal-body').text(event.msg);
+					$('#modal-message-box').find('.modal-body').text(even.msg);
 					action = event.action;
 					show_all_item();
+					
+
 				}
 			},
 			error: function(){
+				//console.log();
 				alert('Error: L57+ add item');
 			}
 		});//end ajax

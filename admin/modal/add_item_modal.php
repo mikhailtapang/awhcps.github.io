@@ -23,6 +23,13 @@ $conditions = $item->item_conditions();
 					    <div class="col-sm-9">
 					      <input type="text" class="form-control" id="accountNumber" placeholder="Enter Account Number">
 					    </div>
+					  </div>
+
+					  	<div class="form-group">
+					    <label class="control-label col-sm-3" for="ownerAddress">Address:</label>
+					    <div class="col-sm-9">
+					      <input type="text" class="form-control" id="ownerAddress" placeholder="Enter Owner's Address">
+					    </div>
 					  </div>					  
 
 					  <div class="form-group">
