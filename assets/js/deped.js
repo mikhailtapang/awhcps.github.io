@@ -136,10 +136,14 @@ function item_profile(iID)
 			console.log(event);
 			$('.account-number').val(event.account_number);
 			$('.item-name').val(event.item_name);
+			$('.owner-address').val(event.owner_address);
 			$('.item-brand').val(event.item_brand);
 			$('.item-serial').val(event.item_serno);
 			$('.item-model').val(event.item_modno);
 			$('.item-amount').val(event.item_amount);
+			$('.rfid-code').val(event.rfid_code);
+			$('.sticker-type').val(event.vehicle_sticker_type);
+			$('.sticker-number').val(event.vehicle_sticker_number);
 			$('.item-purchased').val(event.item_purdate);
 			$('.item-owner').val(event.emp_fname+' '+event.emp_mname+' '+event.emp_lname);
 			$('.item-category').val(event.cat_desc);

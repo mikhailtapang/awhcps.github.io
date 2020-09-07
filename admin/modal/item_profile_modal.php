@@ -9,40 +9,12 @@
 				<form class="form-horizontal" role="form" id="update-item-form">
 					<input type="hidden" id="iID">
 
-					  <div class="form-group">
+					 <div class="form-group">
 					    <label class="control-label col-sm-3">Account Number:</label>
 					    <div class="col-sm-9">
-					      <input type="text" class="form-control account-name" disabled placeholder="Account Number" autofocus>
-					    </div>
-					    
-					  </div>
-					  <div class="form-group">
-					    <label class="control-label col-sm-3">Plate Number:</label>
-					    <div class="col-sm-9">
-					      <input type="text" class="form-control item-name" disabled placeholder="Enter Item Name" autofocus>
-					    </div>
-					  </div>
-
-					  <div class="form-group">
-					    <label class="control-label col-sm-3">Color:</label>
-					    <div class="col-sm-9"> 
-					      <input type="text" class="form-control item-serial" disabled placeholder="Enter Serial No">
-					    </div>
-					  </div>
-
-					   <div class="form-group">
-					    <label class="control-label col-sm-3">Brand:</label>
-					    <div class="col-sm-9"> 
-					      <input type="text" class="form-control item-model" disabled placeholder="Enter Model No">
-					    </div>
-					  </div>
-					
-					  <div class="form-group">
-					    <label class="control-label col-sm-3">Model:</label>
-					    <div class="col-sm-9"> 
-					      <input type="text" class="form-control item-brand" disabled placeholder="Enter Brand">
-					    </div>
-					  </div>
+					      <input type="text" class="form-control account-number" disabled placeholder="Account Number">
+					    </div> 
+					</div>
 
 					  <div class="form-group">
 					    <label class="control-label col-sm-3">Owner:</label>
@@ -52,16 +24,73 @@
 					  </div>
 
 					  <div class="form-group">
+					    <label class="control-label col-sm-3">Owner's Address:</label>
+					    <div class="col-sm-9">
+					      <input type="text" class="form-control owner-address" disabled placeholder="Address" autofocus>
+					    </div>
+					    
+					  </div>
+
+					  <div class="form-group">
+					    <label class="control-label col-sm-3">Plate Number:</label>
+					    <div class="col-sm-9">
+					      <input type="text" class="form-control item-name" disabled placeholder="Plate Number">
+					    </div>
+					  </div>
+
+					  <div class="form-group">
+					    <label class="control-label col-sm-3">Color:</label>
+					    <div class="col-sm-9"> 
+					      <input type="text" class="form-control item-serial" disabled placeholder="Color">
+					    </div>
+					  </div>
+
+					   <div class="form-group">
+					    <label class="control-label col-sm-3">Make:</label>
+					    <div class="col-sm-9"> 
+					      <input type="text" class="form-control item-model" disabled placeholder="Make">
+					    </div>
+					  </div>
+					
+					  <div class="form-group">
+					    <label class="control-label col-sm-3">Model:</label>
+					    <div class="col-sm-9"> 
+					      <input type="text" class="form-control item-brand" disabled placeholder="Model">
+					    </div>
+					  </div>
+
+					  <div class="form-group">
+					    <label class="control-label col-sm-3">RFID Code</label>
+					    <div class="col-sm-9"> 
+					      <input type="text" class="form-control rfid-code" disabled placeholder="RFID Code">
+					    </div>
+					  </div>
+
+					  <div class="form-group">
+					    <label class="control-label col-sm-3">Sticker type:</label>
+					    <div class="col-sm-9"> 
+					      <input type="text" class="form-control sticker-type" disabled placeholder="Sticker Type">
+					    </div>
+					  </div>
+
+					  <div class="form-group">
+					    <label class="control-label col-sm-3">Sticker number:</label>
+					    <div class="col-sm-9"> 
+					      <input type="text" class="form-control sticker-number" disabled placeholder="Sticker number">
+					    </div>
+					  </div>
+
+					  <div class="form-group">
 					    <label class="control-label col-sm-3">Register date:</label>
 					    <div class="col-sm-9"> 
-					      <input type="text" class="form-control item-purchased" disabled placeholder="Enter Amount">
+					      <input type="text" class="form-control item-purchased" disabled placeholder="register date">
 					    </div>
 					  </div>	
 
 					   <div class="form-group">
 					    <label class="control-label col-sm-3">Employee:</label>
 					    <div class="col-sm-9"> 
-					      <input type="text" class="form-control item-owner" disabled placeholder="Enter Amount">
+					      <input type="text" class="form-control item-owner" disabled placeholder="Employee">
 					    </div>
 					  </div>
 
