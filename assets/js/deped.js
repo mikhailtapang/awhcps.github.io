@@ -43,6 +43,9 @@ $(document).on('submit', '#add-item-form', function(event) {
 								$('input[id=serialNumber]'),
 								$('input[id=modelNumber]'),
 								$('input[id=brand]'),
+								$('input[id=rfidCode]'),
+								$('input[id=stickerType]'),
+								$('input[id=stickerNumber]'),								
 								$('input[id=amount]'),
 								$('input[id=purDate]'),
 								$('#empID'),
@@ -66,7 +69,7 @@ $(document).on('submit', '#add-item-form', function(event) {
 		}
 	}
 	console.log('validate: ', validate);
-	if(validate == '012345678910'){
+	if(validate == '012345678910111213'){
 		$.ajax({
 			url: '../data/addItem.php',
 			type: 'post',
