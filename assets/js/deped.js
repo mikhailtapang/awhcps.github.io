@@ -78,10 +78,10 @@ $(document).on('submit', '#add-item-form', function(event) {
 
 				//console.log(result)
 				if(event.valid == valid){
-					$('#modal-add-item').modal('hidden');
+					$('#modal-add-item').modal('hide');
 					$('#add-item-form').trigger('reset');
 					$('#modal-message-box').modal('show');
-					$('#modal-message-box').find('.modal-body').text(even.msg);
+					$('#modal-message-box').find('.modal-body').text(event.msg);
 					action = event.action;
 					show_all_item();
 					
