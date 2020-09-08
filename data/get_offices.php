@@ -1,46 +1,55 @@
 <?php 
-require_once('../class/Office.php');
+require_once('../class/Request.php');
 
-$res =  $office->get_offices();
+$results = $request->violation_list();
 
-// print_r($res);
+// echo '<pre>';
+// 	print_r($results);
+// echo '</pre>';
 
 ?>
 
-
-<table id="myTable-office" class="table table-bordered table-hover" cellspacing="0" width="100%">
+<table id="myTable-violations" class="table table-bordered table-hover" cellspacing="0" width="100%">
 	<thead>
 	    <tr>
-	        <td>Office</td>
-	        <th><center>Action</center></th>
+	        <td>Plate Number</td>
+	        <td>Owner</td>
+	        <td>Violation</td>
+	        <td>Date</td>
+	        <th><center>Violation officer</center></th>
 	    </tr>
 	</thead>
  	<tbody>
- 	<?php foreach($res as $r): ?>
+<?php foreach($results as $r):
+ 		$pN = $r['plate_number'];
+ 		$o = $r['owner'];
+ 		$v = $r['violation'];
+ 		$dA = $r['date_apprehended'];
+ 		$vO = $r['violation_officer'];
+
+
+ 		$text_color = '';
+ 	 ?>
  		<tr>
- 			<td><?= $r['off_desc']; ?></td>
- 			<td>
- 				<center>
- 					<button type="button" class="btn btn-warning btn-xs" onclick="fill_office_form('<?= $r['off_id'] ?>');">
- 					<span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit</button>
- 					<button type="button" class="btn btn-danger btn-xs">
- 					<span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete</button>
- 				</center>
- 			</td>
+ 			<td <?= $text_color; ?> ><?= $pN; ?></td>
+ 			<td <?= $text_color; ?> ><?= $o; ?></td>
+ 			<td <?= $text_color; ?> ><?= $v; ?></td>
+ 			<td <?= $text_color; ?> ><?= $dA; ?></td>
+ 			<td <?= $text_color; ?> ><?= $vO; ?></td>
  		</tr>
- 	<?php endforeach; ?>
+ 		<?php endforeach; ?>
  	</tbody>
 </table>
 
 
 <?php 
-$office->Disconnect();
+$request->Disconnect();
  ?>
 
 <!-- for the datatable of employee -->
 <script type="text/javascript">
 	$(document).ready(function() {
-		$('#myTable-office').DataTable();
+		$('#myTable-request-to-admin').DataTable();
 	});
 </script>
 

@@ -568,6 +568,24 @@ function all_request_to_admin()
 }
 all_request_to_admin();
 
+//violation list
+function violation_list()
+{
+	$.ajax({
+			url: '../data/get_offices.php',
+			type: 'post',
+			success: function (data) {
+				// console.log(data);
+				$('#myTable-violations').html(data);
+			},
+			error: function(){
+				alert('Error: violations');
+			}
+		});
+}
+violation_list();
+
+
 //request_action
 var action = '';
 var request_id = '';

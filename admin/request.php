@@ -29,7 +29,7 @@ include_once('../include/header.php'); ?>
         </li> -->
 
   	    <li class="active">
-          <a href="request.php"><span class="glyphicon glyphicon-tags"></span> Request</a>
+          <a href="request.php"><span class="glyphicon glyphicon-tags"></span> Violations</a>
         </li>
 
   	    <li>
@@ -55,10 +55,10 @@ include_once('../include/header.php'); ?>
 
  			 	<div class="panel-heading">
         <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
-        Employee's Requests List</div>
+        Violations</div>
   	  			<div class="panel-body">
               <!-- main content -->
-                <div id="request-to-admin"></div>
+                <div id="myTable-violations"></div>
               <!-- /main content -->
               <br />
   	  			</div>

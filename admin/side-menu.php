@@ -16,14 +16,14 @@
                   Add Employee</a> 
                 </li>
 
-<!--                 <li><a href="#modal-add-position" data-toggle="modal"><span class="glyphicon glyphicon-road"></span>
-                  Add Location</a> 
+                <li><a href="#modal-add-position" data-toggle="modal"><span class="glyphicon glyphicon-road"></span>
+                  Add Violation</a> 
                 </li>
-
+<!-- 
                  <li><a href="#modal-add-office" data-toggle="modal"><span class="glyphicon glyphicon-tower"></span>
                 Add Office</a> 
-                </li> -->
-  	  					
+                </li>
+  	  					 -->
                 <li>
                   <div>
                       <a href="item.php">
