@@ -14,7 +14,7 @@ $allItem = $item->get_all_items();
 	        <th>Plate Number</th>
 	        <th>Owner</th>
 	        <th>Model</th>
-	        <th>Category</th>
+	        <th>Color</th>
 	        <th>Condition</th>
 	        <th><center>Action</center></th>
 	    </tr>
@@ -37,7 +37,7 @@ $allItem = $item->get_all_items();
 				<td onclick="item_profile('<?php echo $i['item_id']; ?>');"><?php echo $i['item_amount']; ?></td>
 				<!-- <td onclick="item_profile('<?php echo $i['item_id']; ?>');"><?php echo $fullName; ?></td> -->
 				<td onclick="item_profile('<?php echo $i['item_id']; ?>');"><?php echo ucwords($i['item_modno']); ?> <?php echo ucwords($i['item_brand']); ?></td>
-				<td onclick="item_profile('<?php echo $i['item_id']; ?>');"><?php echo ucwords($i['cat_desc']); ?></td>
+				<td onclick="item_profile('<?php echo $i['item_id']; ?>');"><?php echo ucwords($i['item_serno']); ?></td>
 				<td <?php $cond = $i['con_id']; if($cond == 1){echo 'class="text-success"';} if($cond == 2){echo 'class="text-danger"';}?>
 				onclick="item_profile('<?php echo $i['item_id']; ?>');">
 					<strong>
