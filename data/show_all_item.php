@@ -45,15 +45,21 @@ $allItem = $item->get_all_items();
 					</strong>
 				</td>
 				<td align="center">
-					<button onclick="fill_update_modal('<?php echo $i['item_id']; ?>');" class="btn btn-warning btn-sm"
-					id="btn-edit"<?php if($cond != 1){echo 'disabled';} ?>>
-					<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-					Edit
-					</button>
-					<button class="btn btn-success btn-sm" onclick="item_profile('<?php echo $i['item_id']; ?>');">
-					<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-					View
-					</button>
+    				<div class="col-sm">
+						<button onclick="fill_update_modal('<?php echo $i['item_id']; ?>');" class="btn btn-warning btn-sm"
+						id="btn-edit"<?php if($cond != 1){echo 'disabled';} ?>>
+						<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+						Edit
+						</button>
+						<button class="btn btn-success btn-sm" onclick="item_profile('<?php echo $i['item_id']; ?>');">
+						<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+						View
+						</button>
+						<button onclick="add_violation('<?php echo $i['item_id']; ?>')" class="btn btn-danger btn-sm" >
+						<span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span>
+						Add violation
+						</button>
+					</div>
 				</td>
 			</tr>
 		<?php		

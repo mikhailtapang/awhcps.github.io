@@ -149,7 +149,9 @@ class Request extends Database implements iRequest {
 		//display all pending request OR where req_status_id is pending
 		$status_id = 1;//1 means pending pa siya
 		$sql = "SELECT *
-				FROM tbl_violations v
+				FROM tbl_item i
+				INNER JOIN tbl_violations v 
+				ON i.item_id = v.vehicle_id
 				WHERE v.status = ?
 		";
 		$result = $this->getRows($sql, [$status_id]);

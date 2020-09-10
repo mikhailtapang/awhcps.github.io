@@ -118,7 +118,7 @@ function show_all_item()
 }
 
 show_all_item();
-
+	
 
 
 /*kung e lick ang table nga row sa item table*/
@@ -155,6 +155,27 @@ function item_profile(iID)
 	});
 }//end function item_profile
 
+function add_violation(iID)
+{
+	$.ajax({
+			url: '../data/item_profile.php',
+			type: 'post',
+			dataType: 'json',
+			data: { iID: iID},
+			
+			success: function (data) {
+				
+				$('#accountNumber-violation').val(data.account_number);
+				$('#ownerName').val(data.item_amount);
+				$('#plateNumber').val(data.item_name);
+				$('#iID').val(data.item_id)//iID
+				$('#modal-add-violation').modal('show');
+			},
+			error: function (){
+				alert('Error: fill_update_modal L172+');
+			}
+		});
+}
 /*
 *e fill ang update modal
 */
@@ -248,6 +269,63 @@ $(document).on('submit', '#update-item-form', function(event) {
 			});
 	}//end valdidate
 });//end submit $update-item-form
+
+$(document).on('submit', '#add-violation-form', function(event) {
+	event.preventDefault();
+	/* Act on the event */
+	var validate = '';
+	var form_data = new Array(
+								$('input[id=accountNumber-violation]'), 
+								$('input[id=ownerName]'), 
+								$('input[id=plateNumber]'), 
+								$('input[id=driverName]'), 
+								$('input[id=dateApprehended]'), 
+								$('input[id=violationOfficer]'), 
+								$('input[id=ticketNumber]'),
+								$('input[id=violation]'),
+								$('#iID'),
+								$('#status')
+							);
+
+	var data = new Array(form_data.length);
+	console.log("data", data);
+	for(var i = 0; i < form_data.length; i++){
+		if(form_data[i].val().length == 0){
+			form_data[i].parent().parent().addClass('has-error');
+		}else{
+			form_data[i].parent().parent().removeClass('has-error');
+			data[i] = form_data[i].val();
+			validate += i;
+			
+
+		}
+		
+	}
+	console.log("validate", validate);
+
+	if(validate == '012345678'){
+		$.ajax({
+				url: '../data/add_violation.php',
+				type: 'post',
+				dataType: 'json',
+				data: {
+					data: JSON.stringify(data)
+				},
+				success: function (data) {
+
+					if(data.valid == valid){
+						$('#modal-add-violation').modal('hide');
+						$('#modal-message-box').find('.modal-body').text(data.msg);
+						$('#modal-message-box').modal('show');
+						show_all_item();
+					}
+				},
+				error: function (){
+					alert('Error: update item L250+');
+				}
+			});
+	}//end valdidate
+});
 
 /*
 *employee logic begin here

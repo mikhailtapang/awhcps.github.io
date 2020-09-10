@@ -9,7 +9,7 @@ $results = $request->violation_list();
 
 ?>
 
-<table id="myTable-violations" class="table table-bordered table-hover" cellspacing="0" width="100%">
+<table id="myTable-violation" class="table table-bordered table-hover" cellspacing="0" width="100%">
 	<thead>
 	    <tr>
 	        <td>Plate Number</td>
@@ -21,8 +21,8 @@ $results = $request->violation_list();
 	</thead>
  	<tbody>
 <?php foreach($results as $r):
- 		$pN = $r['plate_number'];
- 		$o = $r['owner'];
+ 		$pN = $r['item_name'];
+ 		$o = $r['item_amount'];
  		$v = $r['violation'];
  		$dA = $r['date_apprehended'];
  		$vO = $r['violation_officer'];
@@ -49,7 +49,7 @@ $request->Disconnect();
 <!-- for the datatable of employee -->
 <script type="text/javascript">
 	$(document).ready(function() {
-		$('#myTable-request-to-admin').DataTable();
+		$('#myTable-violation').DataTable();
 	});
 </script>
 

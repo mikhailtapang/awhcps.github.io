@@ -92,6 +92,20 @@ class Item extends Database implements iItem{
 		return $this->getRows($sql);
 	}
 
+	public function vehicle_violation()
+	{
+		$sql = "SELECT * FROM tbl_violations";
+		return $this->getRows($sql);
+	}
+	public function insert_violation($account_number, $owner, $plate_number, $driver_name, $date_apprehended, $violation_officer, $violation_number, $violation, $iID, $status)
+	{
+		$status_id = 1;
+		$sql = "INSERT INTO tbl_violations(account_number, owner, plate_number, driver_name, date_apprehended, violation_officer, violation_number, violation, vehicle_id, status)
+				VALUES(?,?,?,?,?,?,?,?,?,?);
+		";
+		$result = $this->insertRow($sql, [$account_number, $owner, $plate_number, $driver_name, $date_apprehended, $violation_officer, $violation_number, $violation, $iID, $status_id]);
+		return $result;
+	}
 
 	public function item_report($choice)
 	{
