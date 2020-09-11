@@ -158,6 +158,18 @@ class Request extends Database implements iRequest {
 		return $result;
 	}
 
+	public function get_vehicle($id)
+	{
+		$sql="SELECT *
+				FROM tbl_item i
+				INNER JOIN tbl_violations v 
+				ON i.item_id = v.vehicle_id
+				WHERE v.vehicle_id = ?
+		";
+		$result = $this->getRow($sql, [$id]);
+		return $result;
+	}
+
 
 
 }

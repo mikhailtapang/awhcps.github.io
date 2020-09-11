@@ -152,7 +152,45 @@ function item_profile(iID)
 		error: function(){
 			alert('Error: item_profile L136+');
 		}
+
 	});
+}//end function item_profile
+
+function violation_profile(iID)
+{
+	$('#modal-violations-profile').modal('show');
+	$.ajax({
+		url: '../data/violation_profile.php',
+		dataType: 'json',
+		type: 'post',
+		data: {
+			iID: iID
+		},
+
+		success: function(event){
+			console.log(event)
+			$('.account-number-profile').val(event.account_number);
+			$('.item-amount-profile').val(event.item_amount);
+			$('.owner-address-profile').val(event.owner_address);
+			$('.item-name-profile').val(event.item_name);
+			$('.item-serial-profile').val(event.item_serno);
+			$('.item-model-profile').val(event.driver_name);
+			$('.item-brand-profile').val(event.item_brand);
+			$('.sticker-type-profile').val(event.vehicle_sticker_type);
+			$('.sticker-number-profile').val(event.vehicle_sticker_number);
+			$('.driversName-profile').val(event.driver_name);
+			$('.dateApprehended-profile').val(event.date_apprehended);
+			$('.violationOfficer-profile').val(event.violation_officer);
+			$('.ticketNumber-profile').val(event.violation_number);
+			$('.violation-profile').val(event.violation);
+
+		},
+		error: function(){
+			alert('Error: violation_profile');
+		}
+
+	});
+
 }//end function item_profile
 
 function add_violation(iID)
@@ -275,9 +313,6 @@ $(document).on('submit', '#add-violation-form', function(event) {
 	/* Act on the event */
 	var validate = '';
 	var form_data = new Array(
-								$('input[id=accountNumber-violation]'), 
-								$('input[id=ownerName]'), 
-								$('input[id=plateNumber]'), 
 								$('input[id=driverName]'), 
 								$('input[id=dateApprehended]'), 
 								$('input[id=violationOfficer]'), 
@@ -303,7 +338,7 @@ $(document).on('submit', '#add-violation-form', function(event) {
 	}
 	console.log("validate", validate);
 
-	if(validate == '012345678'){
+	if(validate == '012345'){
 		$.ajax({
 				url: '../data/add_violation.php',
 				type: 'post',

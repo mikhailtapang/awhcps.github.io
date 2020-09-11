@@ -1,7 +1,7 @@
 <?php 
-require_once('../class/Request.php');
+require_once('../class/item.php');
 
-$results = $request->violation_list();
+$result = $item->violation_list();
 
 // echo '<pre>';
 // 	print_r($results);
@@ -20,7 +20,7 @@ $results = $request->violation_list();
 	    </tr>
 	</thead>
  	<tbody>
-<?php foreach($results as $r):
+<?php foreach($result as $r):
  		$pN = $r['item_name'];
  		$o = $r['item_amount'];
  		$v = $r['violation'];
@@ -31,11 +31,11 @@ $results = $request->violation_list();
  		$text_color = '';
  	 ?>
  		<tr>
- 			<td <?= $text_color; ?> ><?= $pN; ?></td>
- 			<td <?= $text_color; ?> ><?= $o; ?></td>
- 			<td <?= $text_color; ?> ><?= $v; ?></td>
- 			<td <?= $text_color; ?> ><?= $dA; ?></td>
- 			<td <?= $text_color; ?> ><?= $vO; ?></td>
+ 			<td onclick="violation_profile('<?php echo $r['item_id']; ?>');"<?= $text_color; ?> ><?= $pN; ?></td>
+ 			<td onclick="violation_profile('<?php echo $r['vehicle_id']; ?>');"<?= $text_color; ?> ><?= $o; ?></td>
+ 			<td onclick="violation_profile('<?php echo $r['vehicle_id']; ?>');"<?= $text_color; ?> ><?= $v; ?></td>
+ 			<td onclick="violation_profile('<?php echo $r['vehicle_id']; ?>');"<?= $text_color; ?> ><?= $dA; ?></td>
+ 			<td onclick="violation_profile('<?php echo $r['vehicle_id']; ?>');"<?= $text_color; ?> ><?= $vO; ?></td>
  		</tr>
  		<?php endforeach; ?>
  	</tbody>
@@ -43,7 +43,7 @@ $results = $request->violation_list();
 
 
 <?php 
-$request->Disconnect();
+$item->Disconnect();
  ?>
 
 <!-- for the datatable of employee -->
