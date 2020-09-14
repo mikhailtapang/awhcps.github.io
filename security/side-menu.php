@@ -5,7 +5,7 @@
   	  			<div class="panel-body">
   	  				<ul class="">
   	  					<li>
-                   <a href="item-owned.php">
+                   <a href="item.php">
                    <span class="glyphicon glyphicon-refresh"></span>
                    refresh</a>    
                 </li>

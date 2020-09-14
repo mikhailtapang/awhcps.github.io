@@ -11,12 +11,12 @@ include_once('../include/header.php'); ?>
           <a href="index.php"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a>
         </li>
      
-  	    <!-- <li class="active">
+  	    <li class="active">
           <a href="item.php"><span class="glyphicon icon-car"></span> Vehicle
           </a>
         </li> 
   	    
-  	    <li>
+  	    <!-- <li>
           <a href="employee.php"><span class="glyphicon glyphicon-user"></span> Employee</a>
         </li>
 
@@ -49,7 +49,7 @@ include_once('../include/header.php'); ?>
  	 </div>
 	</nav>
 
-	<div id="right_content_accounting" >
+	<div id="right_content_security" >
 		<div class="panel-group">
  			 <div class="panel panel-primary">
 
@@ -58,7 +58,7 @@ include_once('../include/header.php'); ?>
         Vehicle List</div>
   	  			<div class="panel-body">
               <!-- main content -->
-                <div id="allItem"></div>
+                <div id="allItemsec"></div>
               <!-- /main content -->
               <br />
   	  			</div>
@@ -66,7 +66,11 @@ include_once('../include/header.php'); ?>
   
 		</div>
 	</div>
-  
+
+<!-- navigation menu -->
+<!-- <?php require_once('side-menu.php'); ?> -->
+<!-- navigation menu -->
+
 <!-- load all modals here -->
 <?php require_once('load_modals.php'); ?>
 <!-- /load all modals here -->

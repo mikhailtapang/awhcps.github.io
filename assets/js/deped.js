@@ -118,6 +118,27 @@ function show_all_item()
 }
 
 show_all_item();
+
+//display all item
+function show_all_item_security()
+{
+	$.ajax({
+		url: '../data/show_all_item_security.php',
+		type: 'post',
+		async: false,
+		success: function(event){
+			$('#allItemsec').html(event);
+console.log("event", event);
+		},
+		error: function(){
+			alert('Error: show all item L100+ security');
+		}
+	});
+
+	
+}
+
+show_all_item_security();
 	
 
 

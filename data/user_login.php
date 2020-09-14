@@ -25,11 +25,11 @@ if(isset($_POST['data'])){
 
 		}else if($user_exist['type_id'] == 2){ // SECURITY
 			$_SESSION['admin_logged_in'] = $user_exist['emp_id'];
-			$result['url'] = 'security/request.php';
+			$result['url'] = 'security/item.php';
 
 		}else if($user_exist['type_id'] == 3){ // ACCCOUNTING
 			$_SESSION['admin_logged_in'] = $user_exist['emp_id'];
-			$result['url'] = 'accounting/item.php';
+			$result['url'] = 'accounting/request.php';
 		}
 	}else{
 		// echo 'invalid user';

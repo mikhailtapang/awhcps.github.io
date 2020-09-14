@@ -1,5 +1,5 @@
 <?php 
-include_once('../data/user_session.php');//check if naay session otherwise e return sa login
+include_once('../data/admin_session.php');//check if naay session otherwise e return sa login
 include_once('../include/header.php');
 include_once('../include/banner.php'); 
 ?>
@@ -69,7 +69,7 @@ include_once('../include/banner.php');
   </div>
 
 <!-- navigation menu -->
-<?php require_once('side-menu.php'); ?>
+<!-- <?php require_once('side-menu.php'); ?> -->
 <!-- navigation menu -->
 
 <!-- load all modals here -->
