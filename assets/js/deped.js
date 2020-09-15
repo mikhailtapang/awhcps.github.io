@@ -128,7 +128,7 @@ function show_all_item_security()
 		async: false,
 		success: function(event){
 			$('#allItemsec').html(event);
-console.log("event", event);
+
 		},
 		error: function(){
 			alert('Error: show all item L100+ security');
@@ -1018,6 +1018,7 @@ function show_report(){
 				choice: 'all'
 			},
 			success: function (data) {
+
 				$('#show-report').html(data);
 			},
 			error: function(){

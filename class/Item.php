@@ -113,19 +113,22 @@ class Item extends Database implements iItem{
 		date_default_timezone_set('Asia/Singapore');
 		$date = date('Y-m-d');
 
-		if($choice == 'all'){
+		if($choice == 'today'){
 			$sql = "SELECT *
 					FROM tbl_item i 
-					INNER JOIN tbl_violations v;
-				return $this->getRows($sql);
+					INNER JOIN tbl_violations v
+					ON i.item_id = v.vehicle_id
+					WHERE v.date_apprehended = ?";
 
-			}else if($choice == 'today'){
+			return $this->getRows($sql, [$date]);
+		}	else {
 			$sql = "SELECT *
 					FROM tbl_item i 
-					INNER JOIN tbl_violations v;
-					WHERE v.date_apprehended = '$date'";
-			return $this->getRows($sql, [1]);
-		}
+					INNER JOIN tbl_violations v
+					ON i.item_id = v.vehicle_id";
+				return $this->getRows($sql, [1]);
+
+			}
 	}//end item_report
 
 		public function violation_list()
@@ -139,6 +142,7 @@ class Item extends Database implements iItem{
 				WHERE v.status = ?
 		";
 		$result = $this->getRows($sql, [$status_id]);
+
 		return $result;
 	}
 
