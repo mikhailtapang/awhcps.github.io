@@ -110,46 +110,21 @@ class Item extends Database implements iItem{
 	public function item_report($choice)
 	{
 		$sql = "";
+		date_default_timezone_set('Asia/Singapore');
+		$date = date('Y-m-d');
+
 		if($choice == 'all'){
 			$sql = "SELECT *
 					FROM tbl_item i 
-					INNER JOIN tbl_employee e 
-					ON i.emp_id = e.emp_id
-					INNER JOIN tbl_cat c 
-					ON i.cat_id = c.cat_id
-					INNER JOIN tbl_con co 
-					ON i.con_id = co.con_id
-					INNER JOIN tbl_off o 
-					ON o.off_id = e.off_id";
-			return $this->getRows($sql);
-		}else if($choice == 'working'){
+					INNER JOIN tbl_violations v;
+				return $this->getRows($sql);
+
+			}else if($choice == 'today'){
 			$sql = "SELECT *
 					FROM tbl_item i 
-					INNER JOIN tbl_employee e 
-					ON i.emp_id = e.emp_id
-					INNER JOIN tbl_cat c 
-					ON i.cat_id = c.cat_id
-					INNER JOIN tbl_con co 
-					ON i.con_id = co.con_id
-					INNER JOIN tbl_off o 
-					ON o.off_id = e.off_id
-					WHERE i.con_id = ?";
+					INNER JOIN tbl_violations v;
+					WHERE v.date_apprehended = '$date'";
 			return $this->getRows($sql, [1]);
-		}else{
-			//condemed
-			$sql = "SELECT *
-					FROM tbl_item i 
-					INNER JOIN tbl_employee e 
-					ON i.emp_id = e.emp_id
-					INNER JOIN tbl_cat c 
-					ON i.cat_id = c.cat_id
-					INNER JOIN tbl_con co 
-					ON i.con_id = co.con_id
-					INNER JOIN tbl_off o 
-					ON o.off_id = e.off_id
-					WHERE i.con_id = ?
-					ORDER BY i.item_name ASC";
-			return $this->getRows($sql, [2]);
 		}
 	}//end item_report
 
