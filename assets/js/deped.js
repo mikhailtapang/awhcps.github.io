@@ -706,7 +706,7 @@ all_request_to_admin();
 function violation_list()
 {
 	$.ajax({
-			url: '../data/get_offices.php',
+			url: '../data/get_violations.php',
 			type: 'post',
 			success: function (data) {
 				// console.log(data);
@@ -931,7 +931,7 @@ $(document).on('submit', '#upt-position-form', function(event) {
 function get_offices()
 {
 	$.ajax({
-			url: '../data/get_offices.php',
+			url: '../data/get_violations.php',
 			type: 'post',
 			success: function (data) {
 				$('#offices').html(data);
