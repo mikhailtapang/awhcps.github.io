@@ -34,7 +34,7 @@ $result = $item->violation_list();
  		<tr>
  			<td align ='center'>
  				
- 				<button onclick="violation_profile('<?php echo $r['vehicle_id']; ?>');" class="btn btn-warning btn-sm" >
+ 				<button onclick="add_payment('<?php echo $r['vehicle_id']; ?>');" class="btn btn-warning btn-sm" >
 						<span class="glyphicon glyphicon-ruble" aria-hidden="true"></span>
 						Payment
 						</button>

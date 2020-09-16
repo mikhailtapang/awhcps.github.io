@@ -148,7 +148,7 @@ $conditions = $item->item_conditions();
 					  </div>
 
 					  <div class="form-group"> 
-					    <div class="col-sm-offset-2 col-sm-10">
+					    <div class="modal-footer">
 					      <button type="submit" id="btn-submit" value="add" class="btn btn-primary">Save
 					      <span class="glyphicon glyphicon-saved" aria-hidden="true"></span>
 					      </button>

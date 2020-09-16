@@ -231,7 +231,36 @@ function add_violation(iID)
 				$('#modal-add-violation').modal('show');
 			},
 			error: function (){
+				
 				alert('Error: fill_update_modal L172+');
+			}
+		});
+}
+
+function add_payment(iID)
+{
+	
+	$.ajax({
+			url: '../data/payment_profile.php',
+			type: 'post',
+			dataType: 'json',
+			data: { iID: iID},
+			
+			success: function (data) {
+
+				console.log($id);
+				
+				$('#accountNumber-payment').val(data.account_number);
+				$('#ownerName-payment').val(data.item_amount);
+				$('#plateNumber-payment').val(data.item_name);
+				$('#dateApprehended-payment').val(data.date_apprehended);
+				$('#ticketNumber-payment').val(data.violation_number);
+				$('#iID').val(data.vehicle_id)//iID
+				$('#modal-add-payment').modal('show');
+			},
+			error: function (){
+				console.log($id);
+			alert('Error: add_payment');
 			}
 		});
 }
@@ -371,6 +400,58 @@ $(document).on('submit', '#add-violation-form', function(event) {
 
 					if(data.valid == valid){
 						$('#modal-add-violation').modal('hide');
+						$('#modal-message-box').find('.modal-body').text(data.msg);
+						$('#modal-message-box').modal('show');
+						show_all_item();
+					}
+				},
+				error: function (){
+					alert('Error: update item L250+');
+				}
+			});
+	}//end valdidate
+});
+
+$(document).on('submit', '#add-payment-form', function(event) {
+	event.preventDefault();
+	/* Act on the event */
+	var validate = '';
+	var form_data = new Array(
+								$('input[id=amount]'), 
+								$('input[id=or_number]'), 
+								$('input[id=paymentDate]'),
+								$('#iID'),
+								$('#status')
+							);
+
+	var data = new Array(form_data.length);
+	console.log("data", data);
+	for(var i = 0; i < form_data.length; i++){
+		if(form_data[i].val().length == 0){
+			form_data[i].parent().parent().addClass('has-error');
+		}else{
+			form_data[i].parent().parent().removeClass('has-error');
+			data[i] = form_data[i].val();
+			validate += i;
+			
+
+		}
+		
+	}
+	console.log("validate", validate);
+
+	if(validate == '012'){
+		$.ajax({
+				url: '../data/add_payment.php',
+				type: 'post',
+				dataType: 'json',
+				data: {
+					data: JSON.stringify(data)
+				},
+				success: function (data) {
+					console.log(validate)
+					if(data.valid == valid){
+						$('#modal-add-payment').modal('hide');
 						$('#modal-message-box').find('.modal-body').text(data.msg);
 						$('#modal-message-box').modal('show');
 						show_all_item();
@@ -798,7 +879,7 @@ $(document).on('submit', '#form-changepassword', function(event) {
 							$('#modal-message-box').modal('show');
 							$('#modal-message-box').find('.modal-body').text(data.msg);
 						}else{
-							alert('Opps: Somethings went wrong! check db!');
+							alert('Oops: Something went wrong! check db!');
 						}
 					},
 					error: function(){

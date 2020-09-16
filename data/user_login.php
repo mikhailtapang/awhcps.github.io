@@ -21,14 +21,17 @@ if(isset($_POST['data'])){
 
 		if($user_exist['type_id'] == 1){ // ADMIN
 			$_SESSION['admin_logged_in'] = $user_exist['emp_id'];
+			$empSession = $_SESSION['admin_logged_in'];
 			$result['url'] = 'admin/item.php';
 
 		}else if($user_exist['type_id'] == 2){ // SECURITY
 			$_SESSION['admin_logged_in'] = $user_exist['emp_id'];
+			$empSession = $_SESSION['admin_logged_in'];
 			$result['url'] = 'security/item.php';
 
 		}else if($user_exist['type_id'] == 3){ // ACCCOUNTING
 			$_SESSION['admin_logged_in'] = $user_exist['emp_id'];
+			$empSession = $_SESSION['admin_logged_in'];
 			$result['url'] = 'accounting/request.php';
 		}
 	}else{
