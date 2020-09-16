@@ -195,7 +195,7 @@ function violation_profile(iID)
 			$('.owner-address-profile').val(event.owner_address);
 			$('.item-name-profile').val(event.item_name);
 			$('.item-serial-profile').val(event.item_serno);
-			$('.item-model-profile').val(event.driver_name);
+			$('.item-model-profile').val(event.item_modno);
 			$('.item-brand-profile').val(event.item_brand);
 			$('.sticker-type-profile').val(event.vehicle_sticker_type);
 			$('.sticker-number-profile').val(event.vehicle_sticker_number);
