@@ -247,9 +247,7 @@ function add_payment(iID)
 			data: { iID: iID},
 			
 			success: function (data) {
-
-				console.log($id);
-				
+		
 				$('#accountNumber-payment').val(data.account_number);
 				$('#ownerName-payment').val(data.item_amount);
 				$('#plateNumber-payment').val(data.item_name);
@@ -259,7 +257,6 @@ function add_payment(iID)
 				$('#modal-add-payment').modal('show');
 			},
 			error: function (){
-				console.log($id);
 			alert('Error: add_payment');
 			}
 		});
@@ -417,15 +414,13 @@ $(document).on('submit', '#add-payment-form', function(event) {
 	/* Act on the event */
 	var validate = '';
 	var form_data = new Array(
-								$('input[id=amount]'), 
+								$('input[id=amount_payment]'), 
 								$('input[id=or_number]'), 
 								$('input[id=paymentDate]'),
-								$('#iID'),
-								$('#status')
+								$('#iID')
 							);
 
 	var data = new Array(form_data.length);
-	console.log("data", data);
 	for(var i = 0; i < form_data.length; i++){
 		if(form_data[i].val().length == 0){
 			form_data[i].parent().parent().addClass('has-error');
@@ -438,9 +433,10 @@ $(document).on('submit', '#add-payment-form', function(event) {
 		}
 		
 	}
-	console.log("validate", validate);
 
-	if(validate == '012'){
+
+
+	if(validate == '0123'){
 		$.ajax({
 				url: '../data/add_payment.php',
 				type: 'post',
@@ -449,7 +445,8 @@ $(document).on('submit', '#add-payment-form', function(event) {
 					data: JSON.stringify(data)
 				},
 				success: function (data) {
-					console.log(validate)
+					
+					console.log("data", data)
 					if(data.valid == valid){
 						$('#modal-add-payment').modal('hide');
 						$('#modal-message-box').find('.modal-body').text(data.msg);
@@ -458,6 +455,8 @@ $(document).on('submit', '#add-payment-form', function(event) {
 					}
 				},
 				error: function (){
+					console.log("validate", validate)
+					console.log("data", data);
 					alert('Error: update item L250+');
 				}
 			});

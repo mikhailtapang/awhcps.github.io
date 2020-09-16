@@ -1,4 +1,4 @@
- <?php 
+<?php 
 interface iEmployee{
 	public function my_session_start();
 	public function insert_employee($fN, $mN, $lN, $pos, $off, $type);

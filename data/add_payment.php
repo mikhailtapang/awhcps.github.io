@@ -1,15 +1,15 @@
 <?php 
+
 require_once('../class/Item.php');
 if(isset($_POST['data'])){
 	$data = json_decode($_POST['data'], true);
 	
 
-	$accounting_officer = $data[0];
-	$amount_paid = $data[1];
-	$or_number = $data[2];
-	$date_paid = $data[3];
-	$iID = $data[4];
-	$status = $data[5];
+	$amount_paid = $data[0];
+	$or_number = $data[1];
+	$date_paid = $data[2];
+	$iID = $data[3];
+
 	// $account_number = $data[0]; 
 	// $iN  = $data[1]; 		
 	// $sN  = $data[2];	
@@ -22,7 +22,7 @@ if(isset($_POST['data'])){
 	// $coID= $data[9]; 
 	// $iID = $data[10];
 
-	$result['valid'] = $item->insert_payment($accounting_officer,  $amount_paid, $or_number, $date_paid, $iID, $status);
+	$result['valid'] = $item->insert_payment($amount_paid, $or_number, $date_paid, $iID);
 	if($result['valid']){
 		$result['msg'] = 'Payment added Successfully!';
 		echo json_encode($result);

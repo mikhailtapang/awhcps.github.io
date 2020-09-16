@@ -55,15 +55,15 @@ $employees = $employee->get_employees();
 					  </div>	
 
 					  <div class="form-group">
-					    <label class="control-label col-sm-3" for="amount">Amount:</label>
+					    <label class="control-label col-sm-3" for="amount_payment">Amount:</label>
 					    <div class="col-sm-9"> 
-					      <input type="text" step="any"  class="form-control" id="amount" placeholder="Amount">
+					      <input type="text" step="any"  class="form-control" id="amount_payment" placeholder="Amount">
 					    </div>
 					  </div>
 					  <div class="form-group">
 					    <label class="control-label col-sm-3" for="or_number">OR number:</label>
 					    <div class="col-sm-9"> 
-					      <input type="text" step="any"  class="form-control" id="or_number" placeholder="Amount">
+					      <input type="text" step="any"  class="form-control" id="or_number" placeholder="OR Number">
 					    </div>
 					  </div>
 
@@ -82,7 +82,7 @@ $employees = $employee->get_employees();
 					    </div>
 					  </div>
 
-					  <input type="hidden" class="form-control" id="status">
+
 					</form>
 				<!-- /main form -->
 			</div>

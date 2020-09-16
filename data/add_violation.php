@@ -23,7 +23,7 @@ if(isset($_POST['data'])){
 	// $coID= $data[9]; 
 	// $iID = $data[10];
 
-	$result['valid'] = $item->insert_violation($driverName,  $dateApprehended, $violationOfficer, $violationNumber, $violation,$iID, $status );
+	$result['valid'] = $item->insert_violation($driverName,  $dateApprehended, $violationOfficer, $violationNumber, $violation,$iID, $status);
 	if($result['valid']){
 		$result['msg'] = 'Violation added Successfully!';
 		echo json_encode($result);
