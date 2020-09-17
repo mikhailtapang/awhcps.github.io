@@ -366,7 +366,7 @@ $(document).on('submit', '#add-violation-form', function(event) {
 							);
 
 	var data = new Array(form_data.length);
-	console.log("data", data);
+	//console.log("data", data);
 	for(var i = 0; i < form_data.length; i++){
 		if(form_data[i].val().length == 0){
 			form_data[i].parent().parent().addClass('has-error');
@@ -379,7 +379,7 @@ $(document).on('submit', '#add-violation-form', function(event) {
 		}
 		
 	}
-	console.log("validate", validate);
+	//console.log("validate", validate);
 
 	if(validate == '012345'){
 		$.ajax({

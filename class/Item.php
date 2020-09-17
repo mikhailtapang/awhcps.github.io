@@ -92,7 +92,7 @@ class Item extends Database implements iItem{
 	{
 		//$date = date("Y-m-d"); //year month day
 		$status_id = 2;
-		$sql = "INSERT INTO tbl_payments(amount_paid, or_number, date_paid, vehicle_id)
+		$sql = "INSERT INTO tbl_payment(amount_paid, or_number, date_paid, vehicle_id)
 				VALUES(?, ?, ?, ?);
 		";
 		$sql2= "UPDATE tbl_violations
