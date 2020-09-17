@@ -55,7 +55,7 @@ include_once('../include/header.php'); ?>
 
  			 	<div class="panel-heading">
         <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
-        All Open Violations Report</div>
+        All Violations Report</div>
   	  			<div class="panel-body">
               <!-- main content -->
               <b>Filter:</b>

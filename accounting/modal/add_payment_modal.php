@@ -18,8 +18,6 @@ $employees = $employee->get_employees();
 				<!-- main form -->
 					<form class="form-horizontal" role="form" id="add-payment-form">
 					<input type="hidden" id="iID">
-					<input type="hidden" id="vID">
-
 
 					  <div class="form-group">
 					    <label class="control-label col-sm-3" for="accountNumber-payment">Account Number:</label>

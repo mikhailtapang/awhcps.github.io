@@ -1,6 +1,9 @@
+
 <?php 
+
 require_once('../class/Employee.php');
 
+	
 if(isset($_POST['pos'])){
 	$pos = $_POST['pos'];
 	$return['valid'] = $employee->insert_employee_position($pos);
