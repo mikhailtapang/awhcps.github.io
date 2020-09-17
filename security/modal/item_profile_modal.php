@@ -87,7 +87,7 @@
 					    </div>
 					  </div>	
 
-					   <div class="form-group">
+<!-- 					   <div class="form-group">
 					    <label class="control-label col-sm-3">Employee:</label>
 					    <div class="col-sm-9"> 
 					      <input type="text" class="form-control item-owner" disabled placeholder="Employee">
@@ -106,7 +106,7 @@
 					    <div class="col-sm-9"> 
 					      <input type="text" class="form-control item-condition" disabled placeholder="Enter Amount">
 					    </div>
-					  </div>
+					  </div> -->
 
 				</form>
 			</div>

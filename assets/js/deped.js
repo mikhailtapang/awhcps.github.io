@@ -47,10 +47,7 @@ $(document).on('submit', '#add-item-form', function(event) {
 								$('input[id=rfidCode]'),
 								$('input[id=stickerType]'),
 								$('input[id=stickerNumber]'),								
-								$('input[id=purDate]'),
-								$('#empID'),
-								$('#catID'),
-								$('#conID')
+								$('input[id=purDate]')
 							);
 	
 	console.log('form_data: ', form_data);
@@ -69,7 +66,7 @@ $(document).on('submit', '#add-item-form', function(event) {
 		}
 	}
 	console.log('validate: ', validate);
-	if(validate == '012345678910111213'){
+	if(validate == '012345678910'){
 		$.ajax({
 			url: '../data/addItem.php',
 			type: 'post',
@@ -108,6 +105,7 @@ function show_all_item()
 		async: false,
 		success: function(event){
 			$('#allItem').html(event);
+
 		},
 		error: function(){
 			alert('Error: show all item L100+');
@@ -314,9 +312,6 @@ $(document).on('submit', '#update-item-form', function(event) {
 								$('input[id=stickerType-update]'),
 								$('input[id=stickerNumber-update]'),
 								$('input[id=purDate-update]'),
-								$('#empID-update'),
-								$('#catID-update'),
-								$('#conID-update'),
 								$('#iID')
 							);
 
@@ -332,7 +327,7 @@ $(document).on('submit', '#update-item-form', function(event) {
 	}
 
 
-	if(validate == '01234567891011121314'){
+	if(validate == '01234567891011'){
 		$.ajax({
 				url: '../data/update_item.php',
 				type: 'post',
@@ -349,6 +344,7 @@ $(document).on('submit', '#update-item-form', function(event) {
 					}
 				},
 				error: function (){
+					console.log(validate);
 					alert('Error: update item L250+');
 				}
 			});

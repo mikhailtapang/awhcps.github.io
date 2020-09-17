@@ -10,44 +10,31 @@ $allItem = $item->get_all_items();
 <table id="myTable" class="table table-bordered table-hover" cellspacing="0" width="100%">
 	<thead>
 	    <tr>
+	    	<th><center>Action</center></th>
 	    	<th>Account Number</th>
 	        <th>Plate Number</th>
 	        <th>Owner</th>
 	        <th>Model</th>
 	        <th>Color</th>
-	        <th>Condition</th>
-	        <th><center>Action</center></th>
 	    </tr>
 	</thead>
     <tbody>
 		<?php 
 			foreach ($allItem as $i) {
 				# code...
-				$fN = $i['emp_fname'];
-				$mN = $i['emp_mname'];
-				$mN = $mN[0].'.';
-				$lN = $i['emp_lname'];
-				$fullName = "$fN $mN $lN";
-				$fullName = ucwords($fullName);
+				// $fN = $i['emp_fname'];
+				// $mN = $i['emp_mname'];
+				// $mN = $mN[0].'.';
+				// $lN = $i['emp_lname'];
+				// $fullName = "$fN $mN $lN";
+				// $fullName = ucwords($fullName);
 
 		?>
 			<tr>
-				<td onclick="item_profile('<?php echo $i['item_id']; ?>');"><?php echo $i['account_number']; ?></td>
-				<td onclick="item_profile('<?php echo $i['item_id']; ?>');"><?php echo $i['item_name']; ?></td>
-				<td onclick="item_profile('<?php echo $i['item_id']; ?>');"><?php echo $i['item_amount']; ?></td>
-				<!-- <td onclick="item_profile('<?php echo $i['item_id']; ?>');"><?php echo $fullName; ?></td> -->
-				<td onclick="item_profile('<?php echo $i['item_id']; ?>');"><?php echo ucwords($i['item_modno']); ?> <?php echo ucwords($i['item_brand']); ?></td>
-				<td onclick="item_profile('<?php echo $i['item_id']; ?>');"><?php echo ucwords($i['item_serno']); ?></td>
-				<td <?php $cond = $i['con_id']; if($cond == 1){echo 'class="text-success"';} if($cond == 2){echo 'class="text-danger"';}?>
-				onclick="item_profile('<?php echo $i['item_id']; ?>');">
-					<strong>
-						<?php echo ucfirst($i['con_desc']); ?>
-					</strong>
-				</td>
-				<td align="center">
+
+				<td align="center" style='white-space: nowrap'>
     				<div class="col-sm">
-						<button onclick="fill_update_modal('<?php echo $i['item_id']; ?>');" class="btn btn-warning btn-sm"
-						id="btn-edit"<?php if($cond != 1){echo 'disabled';} ?>>
+						<button onclick="fill_update_modal('<?php echo $i['item_id']; ?>');" class="btn btn-warning btn-sm">
 						<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
 						Edit
 						</button>
@@ -57,10 +44,18 @@ $allItem = $item->get_all_items();
 						</button>
 						<button onclick="add_violation('<?php echo $i['item_id']; ?>')" class="btn btn-danger btn-sm" >
 						<span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span>
-						Add violation
+						Tag
 						</button>
 					</div>
 				</td>
+				<td onclick="item_profile('<?php echo $i['item_id']; ?>');"><?php echo $i['account_number']; ?></td>
+				<td onclick="item_profile('<?php echo $i['item_id']; ?>');"><?php echo $i['item_name']; ?></td>
+				<td onclick="item_profile('<?php echo $i['item_id']; ?>');"><?php echo $i['item_amount']; ?></td>
+				<!-- <td onclick="item_profile('<?php echo $i['item_id']; ?>');"><?php echo $fullName; ?></td> -->
+				<td onclick="item_profile('<?php echo $i['item_id']; ?>');"><?php echo ucwords($i['item_modno']); ?> <?php echo ucwords($i['item_brand']); ?></td>
+				<td onclick="item_profile('<?php echo $i['item_id']; ?>');"><?php echo ucwords($i['item_serno']); ?></td>
+
+
 			</tr>
 		<?php		
 			}//end foreach

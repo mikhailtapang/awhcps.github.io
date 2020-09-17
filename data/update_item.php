@@ -14,10 +14,10 @@ if(isset($_POST['data'])){
 	$sticker_type = $data[8];
 	$sticker_number = $data[9];
 	$pD = $data[10];
-	$eID = $data[11];
-	$cID = $data[12];
-	$coID = $data[13];
-	$iID = $data[14];
+	// $eID = $data[11];
+	// $cID = $data[12];
+	// $coID = $data[13];
+	$iID = $data[11];
 	// $account_number = $data[0]; 
 	// $iN  = $data[1]; 		
 	// $sN  = $data[2];	
@@ -30,7 +30,7 @@ if(isset($_POST['data'])){
 	// $coID= $data[9]; 
 	// $iID = $data[10];
 
-	$result['valid'] = $item->update_item($account_number, $owner_address, $iN, $sN, $mN, $b, $a, $rfid_code, $sticker_type, $sticker_number,$pD, $eID, $cID, $coID, $iID);
+	$result['valid'] = $item->update_item($account_number, $owner_address, $iN, $sN, $mN, $b, $a, $rfid_code, $sticker_type, $sticker_number, $pD, $iID);
 	if($result['valid']){
 		$result['msg'] = 'Data Updated Successfully!';
 		echo json_encode($result);

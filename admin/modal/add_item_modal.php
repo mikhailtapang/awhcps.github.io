@@ -95,57 +95,6 @@ $conditions = $item->item_conditions();
 					    </div>
 					  </div>	
 
-					<div class="form-group">
-					    <label class="control-label col-sm-3" for="catID">Category:</label>
-					    <div class="col-sm-3"> 
-					    	<select name="" class="btn btn-default" id="catID">
-					    		<?php 
-					    			foreach ($categories as $category) {
-					    				# code...
-					    			$catID = $category['cat_id'];
-					    			$catDesc = ucwords($category['cat_desc']);
-					    		?>
-					    			<option value="<?php echo $catID; ?>"><?php echo $catDesc; ?></option>}
-					    		<?php
-					    			}//end foreach of category
-					    		 ?>
-					    	</select>
-					    </div>
-					  </div>
-					
-				    <div class="form-group">
-					    <label class="control-label col-sm-3" for="empID">Employee:</label>
-					    <div class="col-sm-9"> 
-					    	<select class="btn btn-default" id="empID">
-					    		
-								<?php 
-									foreach ($employees as $empployee) {
-										# code..
-									$fN = $empployee['emp_fname'];
-									$mN = $empployee['emp_mname'];
-									$lN = $empployee['emp_lname'];
-									$fullName = "$fN $mN $lN";
-									$fullName = ucwords($fullName);
-									$emp_id = $empployee['emp_id'];
-								?>	
-									<option value="<?php echo $emp_id; ?>"><?php echo $fullName; ?></option>}
-								<?php
-									}//end foreach
-								 ?>					    		
-					    	</select>
-					    </div>
-					  </div>	
-
-					 <!-- old cat pos -->
-
-					  <div class="form-group">
-					    <label class="control-label col-sm-3" for="conID">Condition:</label>
-					    <div class="col-sm-3"> 
-					    	<select name="" class="btn btn-default" id="conID" disabled>
-					    		<option value="4">Working</option>}
-					    	</select>
-					    </div>
-					  </div>
 
 					  <div class="form-group"> 
 					    <div class="modal-footer">

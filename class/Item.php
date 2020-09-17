@@ -8,17 +8,17 @@ class Item extends Database implements iItem{
 	}
 
 	public function insert_item($account_number, $owner_address, $iN, $sN, $mN, $b, $a, $rfid_code, $sticker_type, 
-		$sticker_number, $pD, $eID, $cID, $coID)
+		$sticker_number, $pD)
 	{
-		$sql = "INSERT INTO tbl_item(account_number, owner_address, item_name, item_serno, item_modno, item_brand, item_amount, rfid_code, vehicle_sticker_type, vehicle_sticker_number, item_purdate, emp_id, cat_id, con_id)
-				VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?);
+		$sql = "INSERT INTO tbl_item(account_number, owner_address, item_name, item_serno, item_modno, item_brand, item_amount, rfid_code, vehicle_sticker_type, vehicle_sticker_number, item_purdate)
+				VALUES(?,?,?,?,?,?,?,?,?,?,?);
 		";
-		$result = $this->insertRow($sql, [$account_number, $owner_address, $iN, $sN, $mN, $b, $a, $rfid_code, $sticker_type, $sticker_number, $pD, $eID, $cID, 1]);
+		$result = $this->insertRow($sql, [$account_number, $owner_address, $iN, $sN, $mN, $b, $a, $rfid_code, $sticker_type, $sticker_number, $pD]);
 		return $result;
 	}
 
 	public function update_item($account_number, $owner_address, $iN, $sN, $mN, $b, $a, $rfid_code, $sticker_type, 
-		$sticker_number, $pD, $eID, $cID, $coID, $iID)
+		$sticker_number, $pD, $iID)
 	{	
 		$sql="UPDATE tbl_item
 			  SET 
@@ -32,14 +32,11 @@ class Item extends Database implements iItem{
 			  rfid_code = ?,
 			  vehicle_sticker_type = ?, 
 			  vehicle_sticker_number = ?, 
-			  item_purdate = ?, 	
-			  emp_id = ?, 
-			  cat_id = ?, 
-			  con_id = ?
+			  item_purdate = ?
 			  WHERE item_id = ?
 		";
 		$result = $this->updateRow($sql, [$account_number, $owner_address, $iN, $sN, $mN, $b, $a, $rfid_code, $sticker_type, 
-		$sticker_number, $pD, $eID, $cID, $coID, $iID]);
+		$sticker_number, $pD, $iID]);
 		return $result;
 	}
 
@@ -47,14 +44,6 @@ class Item extends Database implements iItem{
 	{
 		$sql="SELECT *
 			  FROM tbl_item i
-			  INNER JOIN tbl_employee e
-			  ON i.emp_id = e.emp_id
-			  INNER JOIN tbl_off o
-			  ON e.off_id = o.off_id
-			  INNER JOIN tbl_con c 
-			  ON c.con_id = i.con_id
-			  INNER JOIN tbl_cat ca
-			  ON ca.cat_id = i.cat_id
 			  WHERE i.item_id = ?
 		";
 		$result = $this->getRow($sql, [$id]);
@@ -66,14 +55,6 @@ class Item extends Database implements iItem{
 		/*get all items with the office nga naa sa emp*/
 		$sql = "SELECT *
 				FROM tbl_item i
-				INNER JOIN tbl_employee e
-				ON i.emp_id = e.emp_id
-				INNER JOIN tbl_off o
-				ON e.off_id = o.off_id
-				INNER JOIN tbl_con c 
-				ON c.con_id = i.con_id
-				INNER JOIN tbl_cat ca
-				ON ca.cat_id = i.cat_id
 				ORDER by i.item_name
 		";
 		$result = $this->getRows($sql);
