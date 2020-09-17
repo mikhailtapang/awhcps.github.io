@@ -1,7 +1,6 @@
 <?php 
 require_once('../class/Login.php');
 
-
 if(isset($_POST['data'])){
 	$data = json_decode($_POST['data'], true);
 	$un = $data[0];
@@ -24,8 +23,6 @@ if(isset($_POST['data'])){
 			$_SESSION['admin_logged_in'] = $user_exist['emp_id'];
 			$empSession = $_SESSION['admin_logged_in'];
 			$result['url'] = 'admin/item.php';
-
-
 
 		}else if($user_exist['type_id'] == 2){ // SECURITY
 			$_SESSION['admin_logged_in'] = $user_exist['emp_id'];

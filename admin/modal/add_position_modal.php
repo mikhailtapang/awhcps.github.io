@@ -10,9 +10,6 @@
 					<form class="form-horizontal" role="form" id="add-position-form">
 					  <div class="form-group">
 					    <label class="control-label col-sm-3" for="position">Position:</label>
-					    <script type="text/javascript">
-						var sessionexternal= '<%= Session['admin_logged_in'] %>';
-						</script>
 					    <div class="col-sm-9">
 					      <input type="text" class="form-control" id="position" placeholder="Enter Position Description" autofocus>
 					      <br />
@@ -23,7 +20,7 @@
 					  </div>
 					</form>
 				<!-- /main form -->
-				</div>
+			</div>
 			<div class="modal-footer">
 			</div>
 		</div>

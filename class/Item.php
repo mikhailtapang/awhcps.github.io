@@ -88,7 +88,7 @@ class Item extends Database implements iItem{
 		return $result;
 	}
 
-	public function insert_payment($amount_paid, $or_number, $date_paid, $vID, $iID )
+	public function insert_payment($amount_paid, $or_number, $date_paid, $iID )
 	{
 		//$date = date("Y-m-d"); //year month day
 		$status_id = 2;
@@ -97,12 +97,11 @@ class Item extends Database implements iItem{
 		";
 		$sql2= "UPDATE tbl_violations
 				SET status = ?
-				WHERE vehicle_id = ?
-				AND violation_id = ?;
+				WHERE vehicle_id = ?;
 		";
 		$this->Begin();
 		 	$this->insertRow($sql, [$amount_paid, $or_number, $date_paid, $iID]);
-		 	$this->updateRow($sql2, [$status_id, $iID, $vID]);
+		 	$this->updateRow($sql2, [$status_id, $iID]);
 		$this->Commit();
 	 	return true;
 	}

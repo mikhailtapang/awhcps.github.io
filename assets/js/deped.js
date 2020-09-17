@@ -251,7 +251,6 @@ function add_payment(iID)
 				$('#plateNumber-payment').val(data.item_name);
 				$('#dateApprehended-payment').val(data.date_apprehended);
 				$('#ticketNumber-payment').val(data.violation_number);
-				$('#vID').val(data.violation_id);
 				$('#iID').val(data.vehicle_id)//iID
 				$('#modal-add-payment').modal('show');
 			},
@@ -414,7 +413,6 @@ $(document).on('submit', '#add-payment-form', function(event) {
 								$('input[id=amount_payment]'), 
 								$('input[id=or_number]'), 
 								$('input[id=paymentDate]'),
-								$('#vID'),
 								$('#iID')
 							);
 
@@ -434,7 +432,7 @@ $(document).on('submit', '#add-payment-form', function(event) {
 
 
 
-	if(validate == '01234'){
+	if(validate == '0123'){
 		$.ajax({
 				url: '../data/add_payment.php',
 				type: 'post',
@@ -449,7 +447,7 @@ $(document).on('submit', '#add-payment-form', function(event) {
 						$('#modal-add-payment').modal('hide');
 						$('#modal-message-box').find('.modal-body').text(data.msg);
 						$('#modal-message-box').modal('show');
-						violation_list();	
+						show_all_item();
 					}
 				},
 				error: function (){
@@ -599,7 +597,6 @@ $(document).on('submit', '#add-position-form', function(event) {
  				},
  				success: function (data) {
  					if(data.valid = valid){
- 						console.log(sessionexternal);
  						$('#modal-add-position').modal('hide');
  						$('#modal-message-box').find('.modal-body').text(data.msg);
  						$('#modal-message-box').modal('show');
@@ -607,7 +604,6 @@ $(document).on('submit', '#add-position-form', function(event) {
  					}//end if
  				},
  				error: function(){
- 						console.log($sessionexternal);
  					alert('Error: L328+ submit #add-position-form');
  				}
  			});
@@ -1074,7 +1070,6 @@ $('#addItem').click(function(event) {
 $(document).on('change', '#report-choice', function(event) {
 	event.preventDefault();
 	/* Act on the event */
-	
 	var choice = $('#report-choice').val();
 	$.ajax({
 			url: '../data/show_report.php',

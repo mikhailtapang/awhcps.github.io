@@ -7,8 +7,7 @@ $allItem = $item->get_all_items();
 ?>
 
 <br />
-<div class="table-responsive">
-<table id="myTable" class="table table-bordered table-hover dt-responsive" cellspacing="0">
+<table id="myTable" class="table table-bordered table-hover" cellspacing="0" width="100%">
 	<thead>
 	    <tr>
 	    	<th><center>Action</center></th>
@@ -63,7 +62,7 @@ $allItem = $item->get_all_items();
 		 ?>
     </tbody>
 </table>
-</div>
+
 
 <?php 
 $item->Disconnect();
@@ -72,10 +71,7 @@ $item->Disconnect();
 <!-- for the datatable of item -->
 <script type="text/javascript">
 	$(document).ready(function() {
-		$('#myTable').DataTable({
-        responsive: true
-    });
-
+		$('#myTable').DataTable();
 	});
 
 

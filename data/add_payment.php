@@ -8,8 +8,7 @@ if(isset($_POST['data'])){
 	$amount_paid = $data[0];
 	$or_number = $data[1];
 	$date_paid = $data[2];
-	$vID = $data[3];
-	$iID = $data[4];
+	$iID = $data[3];
 
 	// $account_number = $data[0]; 
 	// $iN  = $data[1]; 		
@@ -23,7 +22,7 @@ if(isset($_POST['data'])){
 	// $coID= $data[9]; 
 	// $iID = $data[10];
 
-	$result['valid'] = $item->insert_payment($amount_paid, $or_number, $date_paid,$vID, $iID);
+	$result['valid'] = $item->insert_payment($amount_paid, $or_number, $date_paid, $iID);
 	if($result['valid']){
 		$result['msg'] = 'Payment added Successfully!';
 		echo json_encode($result);

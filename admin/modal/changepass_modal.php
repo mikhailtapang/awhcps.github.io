@@ -43,7 +43,6 @@
 
 				</form>
 				<!--end  form -->
-				
 			</div>
 			<div class="modal-footer">
 			</div>
