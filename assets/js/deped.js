@@ -245,15 +245,16 @@ function add_payment(iID)
 			data: { iID: iID},
 			
 			success: function (data) {
-				console.log(data);		
+					
 				$('#accountNumber-payment').val(data.account_number);
 				$('#ownerName-payment').val(data.item_amount);
 				$('#plateNumber-payment').val(data.item_name);
 				$('#dateApprehended-payment').val(data.date_apprehended);
 				$('#ticketNumber-payment').val(data.violation_number);
 				$('#vID').val(data.violation_id);
-				$('#iID').val(data.vehicle_id);//iID
+				$('#iID').val(data.vehicle_id)//iID
 				$('#modal-add-payment').modal('show');
+				console.log(data);	
 			},
 			error: function (){
 			alert('Error: add_payment');
@@ -455,7 +456,7 @@ $(document).on('submit', '#add-payment-form', function(event) {
 				error: function (){
 					console.log("validate", validate)
 					console.log("data", data);
-					alert('Error: update item L250+');
+					alert('Error: [payment]');
 				}
 			});
 	}//end valdidate

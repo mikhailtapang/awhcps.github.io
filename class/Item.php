@@ -91,18 +91,17 @@ class Item extends Database implements iItem{
 	public function insert_payment($amount_paid, $or_number, $date_paid, $vID, $iID)
 	{
 		//$date = date("Y-m-d"); //year month day
-		$status_id = 2;
-		$sql = "INSERT INTO tbl_payment(amount_paid, or_number, date_paid, vehicle_id, violation_id)
+		$status = 2;
+		$sql = "INSERT INTO tbl_payment(amount_paid, or_number, date_paid, violation_id, vehicle_id)
 				VALUES(?, ?, ?, ?, ?);
 		";
 		$sql2= "UPDATE tbl_violations
 				SET status = ?
-				WHERE vehicle_id = ?
-				AND violation_id = ?;
+				WHERE violation_id = ?;
 		";
 		$this->Begin();
-		 	$this->insertRow($sql, [$amount_paid, $or_number, $date_paid, $iID, $vID]);
-		 	$this->updateRow($sql2, [$status_id, $iID, $vID]);
+		 	$this->insertRow($sql, [$amount_paid, $or_number, $date_paid, $vID, $iID]);
+		 	$this->updateRow($sql2, [$status, $vID]);
 		$this->Commit();
 	 	return true;
 	}
@@ -157,6 +156,20 @@ class Item extends Database implements iItem{
 		$result = $this->getRow($sql, [$id]);
 		return $result;
 	}
+
+		public function get_violation($id)
+	{
+		$sql="SELECT *
+				FROM tbl_item i
+				INNER JOIN tbl_violations v 
+				ON i.item_id = v.vehicle_id
+				WHERE v.violation_id = ?
+		";
+		$result = $this->getRow($sql, [$id]);
+		return $result;
+	}
+
+
 }
 
 $item = new Item();

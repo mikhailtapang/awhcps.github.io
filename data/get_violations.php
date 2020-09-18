@@ -34,16 +34,16 @@ $result = $item->violation_list();
  		<tr>
  			<td align ='center'>
  				
- 				<button onclick="add_payment('<?php echo $r['vehicle_id']; ?>');" class="btn btn-warning btn-sm" >
+ 				<button onclick="add_payment('<?php echo $r['violation_id']; ?>');" class="btn btn-warning btn-sm" >
 						<span class="glyphicon glyphicon-ruble" aria-hidden="true"></span>
 						Payment
 						</button>
  			</td>
- 			<td align ='center' onclick="violation_profile('<?php echo $r['vehicle_id']; ?>');"<?= $text_color; ?> ><?= $pN; ?></td>
- 			<td align ='center' onclick="violation_profile('<?php echo $r['vehicle_id']; ?>');"<?= $text_color; ?> ><?= $o; ?></td>
- 			<td align ='center' onclick="violation_profile('<?php echo $r['vehicle_id']; ?>');"<?= $text_color; ?> ><?= $v; ?></td>
- 			<td align ='center' onclick="violation_profile('<?php echo $r['vehicle_id']; ?>');"<?= $text_color; ?> ><?= $dA; ?></td>
- 			<td align ='center' onclick="violation_profile('<?php echo $r['vehicle_id']; ?>');"<?= $text_color; ?> ><?= $vO; ?></td>
+ 			<td align ='center' onclick="violation_profile('<?php echo $r['violation_id']; ?>');"<?= $text_color; ?> ><?= $pN; ?></td>
+ 			<td align ='center' onclick="violation_profile('<?php echo $r['violation_id']; ?>');"<?= $text_color; ?> ><?= $o; ?></td>
+ 			<td align ='center' onclick="violation_profile('<?php echo $r['violation_id']; ?>');"<?= $text_color; ?> ><?= $v; ?></td>
+ 			<td align ='center' onclick="violation_profile('<?php echo $r['violation_id']; ?>');"<?= $text_color; ?> ><?= $dA; ?></td>
+ 			<td align ='center' onclick="violation_profile('<?php echo $r['violation_id']; ?>');"<?= $text_color; ?> ><?= $vO; ?></td>
  		</tr>
  		<?php endforeach; ?>
  	</tbody>
