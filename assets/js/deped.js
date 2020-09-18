@@ -427,7 +427,7 @@ $(document).on('submit', '#add-payment-form', function(event) {
 			
 
 		}
-		
+		console.log("data", data)
 	}
 
 
