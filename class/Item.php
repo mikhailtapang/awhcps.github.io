@@ -88,20 +88,21 @@ class Item extends Database implements iItem{
 		return $result;
 	}
 
-	public function insert_payment($amount_paid, $or_number, $date_paid, $iID )
+	public function insert_payment($amount_paid, $or_number, $date_paid, $vID, $iID)
 	{
 		//$date = date("Y-m-d"); //year month day
 		$status_id = 2;
-		$sql = "INSERT INTO tbl_payment(amount_paid, or_number, date_paid, vehicle_id)
-				VALUES(?, ?, ?, ?);
+		$sql = "INSERT INTO tbl_payment(amount_paid, or_number, date_paid, vehicle_id, violation_id)
+				VALUES(?, ?, ?, ?, ?);
 		";
 		$sql2= "UPDATE tbl_violations
 				SET status = ?
-				WHERE vehicle_id = ?;
+				WHERE vehicle_id = ?
+				AND violation_id = ?;
 		";
 		$this->Begin();
-		 	$this->insertRow($sql, [$amount_paid, $or_number, $date_paid, $iID]);
-		 	$this->updateRow($sql2, [$status_id, $iID]);
+		 	$this->insertRow($sql, [$amount_paid, $or_number, $date_paid, $iID, $vID]);
+		 	$this->updateRow($sql2, [$status_id, $iID, $vID]);
 		$this->Commit();
 	 	return true;
 	}
