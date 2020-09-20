@@ -7,6 +7,14 @@ class Item extends Database implements iItem{
 		parent:: __construct();
 	}
 
+		public function my_session_start()
+	{
+		if(session_status() == PHP_SESSION_NONE)
+		{
+			session_start();//start session if session not start
+		}
+	}
+
 	public function insert_item($account_number, $owner_address, $iN, $sN, $mN, $b, $a, $rfid_code, $sticker_type, 
 		$sticker_number, $pD)
 	{
@@ -91,16 +99,18 @@ class Item extends Database implements iItem{
 	public function insert_payment($amount_paid, $or_number, $date_paid, $vID, $iID)
 	{
 		//$date = date("Y-m-d"); //year month day
+		$this->my_session_start();
+		$id = $_SESSION['admin_logged_in'];
 		$status = 2;
-		$sql = "INSERT INTO tbl_payment(amount_paid, or_number, date_paid, violation_id, vehicle_id)
-				VALUES(?, ?, ?, ?, ?);
+		$sql = "INSERT INTO tbl_payment(amount_paid, or_number, date_paid, violation_id, vehicle_id, accounting_officer)
+				VALUES(?, ?, ?, ?, ?, ?);
 		";
 		$sql2= "UPDATE tbl_violations
 				SET status = ?
 				WHERE violation_id = ?;
 		";
 		$this->Begin();
-		 	$this->insertRow($sql, [$amount_paid, $or_number, $date_paid, $vID, $iID]);
+		 	$this->insertRow($sql, [$amount_paid, $or_number, $date_paid, $vID, $iID, $id]);
 		 	$this->updateRow($sql2, [$status, $vID]);
 		$this->Commit();
 	 	return true;
@@ -163,7 +173,7 @@ class Item extends Database implements iItem{
 				FROM tbl_item i
 				INNER JOIN tbl_violations v 
 				ON i.item_id = v.vehicle_id
-				WHERE v.violation_id = ?
+				WHERE v.violation_id= ?
 		";
 		$result = $this->getRow($sql, [$id]);
 		return $result;
