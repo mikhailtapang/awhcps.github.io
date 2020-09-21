@@ -18,6 +18,21 @@ $conditions = $item->item_conditions();
 				<!-- main form -->
 					<form class="form-horizontal" role="form" id="update-item-form">
 					<input type="hidden" id="iID">
+
+					  <div class="form-group">
+					    <label class="control-label col-sm-3" for="accountNumber-update">Account Number:</label>
+					    <div class="col-sm-9">
+					      <input type="text" class="form-control" id="accountNumber-update" placeholder="Enter Account Number">
+					    </div>
+					  </div>
+
+					  <div class="form-group">
+					    <label class="control-label col-sm-3" for="ownerAddress-update">Address:</label>
+					    <div class="col-sm-9">
+					      <input type="text" class="form-control" id="ownerAddress-update" placeholder="Enter Owner's Address">
+					    </div>
+					  </div>
+
 					  <div class="form-group">
 					    <label class="control-label col-sm-3" for="itemName-update">Plate number:</label>
 					    <div class="col-sm-9">
@@ -51,7 +66,28 @@ $conditions = $item->item_conditions();
 					    <div class="col-sm-9"> 
 					      <input type="text" step="any"  class="form-control" id="amount-update" placeholder="Enter Amount">
 					    </div>
-					  </div>		
+					  </div>	
+
+					  <div class="form-group">
+					    <label class="control-label col-sm-3" for="rfidCode-update">RFID Code:</label>
+					    <div class="col-sm-9"> 
+					      <input type="text" class="form-control" id="rfidCode-update" placeholder="Enter RFID code">
+					    </div>
+					  </div>
+
+					  <div class="form-group">
+					    <label class="control-label col-sm-3" for="stickerType-update">Parking sticker type:</label>
+					    <div class="col-sm-9"> 
+					      <input type="text" class="form-control" id="stickerType-update" placeholder="Enter sticker type">
+					    </div>
+					  </div>	
+
+					  <div class="form-group">
+					    <label class="control-label col-sm-3" for="stickerNumber-update">Parking sticker number:</label>
+					    <div class="col-sm-9"> 
+					      <input type="text" class="form-control" id="stickerNumber-update" placeholder="Enter sticker number">
+					    </div>
+					  </div>			
 
 					   <div class="form-group">
 					    <label class="control-label col-sm-3" for="purDate-update">Register Date:</label>
@@ -61,7 +97,7 @@ $conditions = $item->item_conditions();
 					  </div>	
 
 					
-				    <div class="form-group">
+<!-- 				    <div class="form-group">
 					    <label class="control-label col-sm-3" for="empID-update">Employee:</label>
 					    <div class="col-sm-9"> 
 					    	<select class="btn btn-default" id="empID-update">
@@ -120,10 +156,10 @@ $conditions = $item->item_conditions();
 					    		 ?>
 					    	</select>
 					    </div>
-					  </div>
+					  </div> -->
 
 					  <div class="form-group"> 
-					    <div class="col-sm-offset-2 col-sm-10">
+					    <div class="modal-footer">
 					      <button type="submit" id="btn-update-submit" class="btn btn-primary">Save
 					      <span class="glyphicon glyphicon-saved" aria-hidden="true"></span>
 					      </button>

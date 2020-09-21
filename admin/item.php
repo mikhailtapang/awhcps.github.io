@@ -29,7 +29,7 @@ include_once('../include/header.php'); ?>
         </li>
  -->
   	    <li>
-          <a href="request.php"><span class="glyphicon glyphicon-tags"></span> Request</a>
+          <a href="request.php"><span class="glyphicon glyphicon-tags"></span>  Violations</a>
         </li>
 
   	    <li>

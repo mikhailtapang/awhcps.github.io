@@ -7,33 +7,44 @@ class Item extends Database implements iItem{
 		parent:: __construct();
 	}
 
-	public function insert_item($account_number, $owner_address, $iN, $sN, $mN, $b, $a, $rfid_code, $sticker_type, 
-		$sticker_number, $pD, $eID, $cID, $coID)
+		public function my_session_start()
 	{
-		$sql = "INSERT INTO tbl_item(account_number, owner_address, item_name, item_serno, item_modno, item_brand, item_amount, rfid_code, vehicle_sticker_type, vehicle_sticker_number, item_purdate, emp_id, cat_id, con_id)
-				VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?);
+		if(session_status() == PHP_SESSION_NONE)
+		{
+			session_start();//start session if session not start
+		}
+	}
+
+	public function insert_item($account_number, $owner_address, $iN, $sN, $mN, $b, $a, $rfid_code, $sticker_type, 
+		$sticker_number, $pD)
+	{
+		$sql = "INSERT INTO tbl_item(account_number, owner_address, item_name, item_serno, item_modno, item_brand, item_amount, rfid_code, vehicle_sticker_type, vehicle_sticker_number, item_purdate)
+				VALUES(?,?,?,?,?,?,?,?,?,?,?);
 		";
-		$result = $this->insertRow($sql, [$account_number, $owner_address, $iN, $sN, $mN, $b, $a, $rfid_code, $sticker_type, $sticker_number, $pD, $eID, $cID, 1]);
+		$result = $this->insertRow($sql, [$account_number, $owner_address, $iN, $sN, $mN, $b, $a, $rfid_code, $sticker_type, $sticker_number, $pD]);
 		return $result;
 	}
 
-	public function update_item($account_number, $iN, $sN, $mN, $b, $a, $pD, $eID, $cID, $coID, $iID)
+	public function update_item($account_number, $owner_address, $iN, $sN, $mN, $b, $a, $rfid_code, $sticker_type, 
+		$sticker_number, $pD, $iID)
 	{	
 		$sql="UPDATE tbl_item
 			  SET 
 			  account_number = ?, 
+			  owner_address = ?, 
 			  item_name = ?, 
 			  item_serno = ?, 
 			  item_modno = ?, 
 			  item_brand = ?, 
 			  item_amount = ?, 
-			  item_purdate = ?, 	
-			  emp_id = ?, 
-			  cat_id = ?, 
-			  con_id = ?
+			  rfid_code = ?,
+			  vehicle_sticker_type = ?, 
+			  vehicle_sticker_number = ?, 
+			  item_purdate = ?
 			  WHERE item_id = ?
 		";
-		$result = $this->updateRow($sql, [$account_number, $iN, $sN, $mN, $b, $a, $pD, $eID, $cID, $coID, $iID]);
+		$result = $this->updateRow($sql, [$account_number, $owner_address, $iN, $sN, $mN, $b, $a, $rfid_code, $sticker_type, 
+		$sticker_number, $pD, $iID]);
 		return $result;
 	}
 
@@ -41,14 +52,6 @@ class Item extends Database implements iItem{
 	{
 		$sql="SELECT *
 			  FROM tbl_item i
-			  INNER JOIN tbl_employee e
-			  ON i.emp_id = e.emp_id
-			  INNER JOIN tbl_off o
-			  ON e.off_id = o.off_id
-			  INNER JOIN tbl_con c 
-			  ON c.con_id = i.con_id
-			  INNER JOIN tbl_cat ca
-			  ON ca.cat_id = i.cat_id
 			  WHERE i.item_id = ?
 		";
 		$result = $this->getRow($sql, [$id]);
@@ -60,14 +63,6 @@ class Item extends Database implements iItem{
 		/*get all items with the office nga naa sa emp*/
 		$sql = "SELECT *
 				FROM tbl_item i
-				INNER JOIN tbl_employee e
-				ON i.emp_id = e.emp_id
-				INNER JOIN tbl_off o
-				ON e.off_id = o.off_id
-				INNER JOIN tbl_con c 
-				ON c.con_id = i.con_id
-				INNER JOIN tbl_cat ca
-				ON ca.cat_id = i.cat_id
 				ORDER by i.item_name
 		";
 		$result = $this->getRows($sql);
@@ -86,52 +81,105 @@ class Item extends Database implements iItem{
 		return $this->getRows($sql);
 	}
 
+	public function vehicle_violation()
+	{
+		$sql = "SELECT * FROM tbl_violations";
+		return $this->getRows($sql);
+	}
+	public function insert_violation($driver_name, $date_apprehended, $violation_officer, $violation_number, $violation, $iID, $status)
+	{
+		$status_id = 1;
+		$sql = "INSERT INTO tbl_violations(driver_name, date_apprehended, violation_officer, violation_number, violation, vehicle_id, status)
+				VALUES(?,?,?,?,?,?,?);
+		";
+		$result = $this->insertRow($sql, [$driver_name, $date_apprehended, $violation_officer, $violation_number, $violation, $iID, $status_id]);
+		return $result;
+	}
+
+	public function insert_payment($amount_paid, $or_number, $date_paid, $vID, $iID)
+	{
+		//$date = date("Y-m-d"); //year month day
+		$this->my_session_start();
+		$id = $_SESSION['admin_logged_in'];
+		$status = 2;
+		$sql = "INSERT INTO tbl_payment(amount_paid, or_number, date_paid, violation_id, vehicle_id, accounting_officer)
+				VALUES(?, ?, ?, ?, ?, ?);
+		";
+		$sql2= "UPDATE tbl_violations
+				SET status = ?
+				WHERE violation_id = ?;
+		";
+		$this->Begin();
+		 	$this->insertRow($sql, [$amount_paid, $or_number, $date_paid, $vID, $iID, $id]);
+		 	$this->updateRow($sql2, [$status, $vID]);
+		$this->Commit();
+	 	return true;
+	}
 
 	public function item_report($choice)
 	{
 		$sql = "";
-		if($choice == 'all'){
+		date_default_timezone_set('Asia/Singapore');
+		$date = date('Y-m-d');
+
+		if($choice == 'today'){
 			$sql = "SELECT *
 					FROM tbl_item i 
-					INNER JOIN tbl_employee e 
-					ON i.emp_id = e.emp_id
-					INNER JOIN tbl_cat c 
-					ON i.cat_id = c.cat_id
-					INNER JOIN tbl_con co 
-					ON i.con_id = co.con_id
-					INNER JOIN tbl_off o 
-					ON o.off_id = e.off_id";
-			return $this->getRows($sql);
-		}else if($choice == 'working'){
+					INNER JOIN tbl_violations v
+					ON i.item_id = v.vehicle_id
+					WHERE v.date_apprehended = ?";
+
+			return $this->getRows($sql, [$date]);
+		}	else {
 			$sql = "SELECT *
 					FROM tbl_item i 
-					INNER JOIN tbl_employee e 
-					ON i.emp_id = e.emp_id
-					INNER JOIN tbl_cat c 
-					ON i.cat_id = c.cat_id
-					INNER JOIN tbl_con co 
-					ON i.con_id = co.con_id
-					INNER JOIN tbl_off o 
-					ON o.off_id = e.off_id
-					WHERE i.con_id = ?";
-			return $this->getRows($sql, [1]);
-		}else{
-			//condemed
-			$sql = "SELECT *
-					FROM tbl_item i 
-					INNER JOIN tbl_employee e 
-					ON i.emp_id = e.emp_id
-					INNER JOIN tbl_cat c 
-					ON i.cat_id = c.cat_id
-					INNER JOIN tbl_con co 
-					ON i.con_id = co.con_id
-					INNER JOIN tbl_off o 
-					ON o.off_id = e.off_id
-					WHERE i.con_id = ?
-					ORDER BY i.item_name ASC";
-			return $this->getRows($sql, [2]);
-		}
+					INNER JOIN tbl_violations v
+					ON i.item_id = v.vehicle_id";
+				return $this->getRows($sql, [1]);
+
+			}
 	}//end item_report
+
+		public function violation_list()
+	{
+		//display all pending request OR where req_status_id is pending
+		$status_id = 1;//1 means pending pa siya
+		$sql = "SELECT *
+				FROM tbl_item i
+				INNER JOIN tbl_violations v 
+				ON i.item_id = v.vehicle_id
+				WHERE v.status = ?
+		";
+		$result = $this->getRows($sql, [$status_id]);
+
+		return $result;
+	}
+
+	public function get_vehicle($id)
+	{
+		$sql="SELECT *
+				FROM tbl_item i
+				INNER JOIN tbl_violations v 
+				ON i.item_id = v.vehicle_id
+				WHERE v.vehicle_id = ?
+		";
+		$result = $this->getRow($sql, [$id]);
+		return $result;
+	}
+
+		public function get_violation($id)
+	{
+		$sql="SELECT *
+				FROM tbl_item i
+				INNER JOIN tbl_violations v 
+				ON i.item_id = v.vehicle_id
+				WHERE v.violation_id= ?
+		";
+		$result = $this->getRow($sql, [$id]);
+		return $result;
+	}
+
+
 }
 
 $item = new Item();

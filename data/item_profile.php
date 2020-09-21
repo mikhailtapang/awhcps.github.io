@@ -1,5 +1,5 @@
 <?php 
-require_once('../class/Item.php'); 
+require_once('../class/item.php'); 
 
 if(isset($_POST['iID'])){
 	$iID = $_POST['iID'];

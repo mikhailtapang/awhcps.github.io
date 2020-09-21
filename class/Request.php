@@ -144,6 +144,32 @@ class Request extends Database implements iRequest {
 		return $result;
 	}
 
+	public function violation_list()
+	{
+		//display all pending request OR where req_status_id is pending
+		$status_id = 1;//1 means pending pa siya
+		$sql = "SELECT *
+				FROM tbl_item i
+				INNER JOIN tbl_violations v 
+				ON i.item_id = v.vehicle_id
+				WHERE v.status = ?
+		";
+		$result = $this->getRows($sql, [$status_id]);
+		return $result;
+	}
+
+	// public function get_vehicle($id)
+	// {
+	// 	$sql="SELECT *
+	// 			FROM tbl_item i
+	// 			INNER JOIN tbl_violations v 
+	// 			ON i.item_id = v.vehicle_id
+	// 			WHERE v.vehicle_id = ?
+	// 	";
+	// 	$result = $this->getRow($sql, [$id]);
+	// 	return $result;
+	// }
+
 
 
 }

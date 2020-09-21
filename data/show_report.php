@@ -15,28 +15,28 @@ if(isset($_POST['choice'])){
 <table id="myTable-report" class="table table-bordered table-hover" cellspacing="0" width="100%">
 	<thead>
 	    <tr>
-	        <th>Item Name</th>
+	        <th>Plate Number</th>
 	        <th>Owner</th>
-	        <th>Office</th>
-	        <th>Category</th>
-	        <th>Condition</th>
+	        <th>Violation</th>
+	        <th>Model</th>
+	        <th>Date</th>
 	    </tr>
 	</thead>
     <tbody>
     	<?php foreach($reports as $r): 
-    		$fN = $r['emp_fname'];
-    		$mN = $r['emp_mname'];
-    		$lN = $r['emp_lname'];
-    		$mN = $mN[0];
-    		$fullName = "$fN $mN. $lN";
-    		$fullName = ucwords($fullName);
+    		// $fN = $r['empty(var)_fname'];
+    		// $mN = $r['emp_mname'];
+    		// $lN = $r['emp_lname'];
+    		// $mN = $mN[0];
+    		// $fullName = "$fN $mN. $lN";
+    		// $fullName = ucwords($fullName);
     	?>
     		<tr>
     			<td><?= $r['item_name']; ?></td>
-    			<td><?= $fullName; ?></td>
-    			<td><?= $r['off_desc']; ?></td>
-    			<td><?= $r['cat_desc']; ?></td>
-    			<td><?= $r['con_desc']; ?></td>
+    			<td><?= $r['item_amount']; ?></td>
+    			<td><?= $r['violation']; ?></td>
+    			<td><?= $r['item_modno']; ?> <?= $r['item_brand']; ?></td>
+    			<td><?= $r['date_apprehended']; ?></td>
     		</tr>
     	<?php endforeach; ?>
     </tbody>

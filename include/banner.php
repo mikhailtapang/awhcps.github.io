@@ -3,7 +3,7 @@
     <div class="container-fluid">
      <div class="banner">
                     <img src="../img/logo.jpg" width="200" height="90" style="position:absolute;margin-top:-20px;">
-<div style="color:White;margin-left:250px;margin-bottom:50px;margin-top:20px;font-size:30px;font-family:Bodoni MT Black;">AWH Vehicle Management System</div>
+<div style="color:White;margin-left:35%;margin-bottom:33px;margin-top:25px;font-size:30px;">AWH Vehicle Management System</div>
 
                </div> 
      

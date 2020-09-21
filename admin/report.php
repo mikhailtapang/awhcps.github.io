@@ -55,14 +55,13 @@ include_once('../include/header.php'); ?>
 
  			 	<div class="panel-heading">
         <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
-        All Item Status Report</div>
+        All Open Violations Report</div>
   	  			<div class="panel-body">
               <!-- main content -->
               <b>Filter:</b>
                 <select class="btn btn-default" id="report-choice">
                   <option value="all">All</option>
-                  <option value="working">Working</option>
-                  <option value="condemed">Condemed</option>
+                  <option value="today">Today</option>
                 </select>
                 
                 <button id="print-btn" type="button" class="btn btn-success">

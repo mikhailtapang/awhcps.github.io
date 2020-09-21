@@ -43,14 +43,11 @@ $(document).on('submit', '#add-item-form', function(event) {
 								$('input[id=serialNumber]'),
 								$('input[id=modelNumber]'),
 								$('input[id=brand]'),
+								$('input[id=amount]'),
 								$('input[id=rfidCode]'),
 								$('input[id=stickerType]'),
 								$('input[id=stickerNumber]'),								
-								$('input[id=amount]'),
-								$('input[id=purDate]'),
-								$('#empID'),
-								$('#catID'),
-								$('#conID')
+								$('input[id=purDate]')
 							);
 	
 	console.log('form_data: ', form_data);
@@ -69,7 +66,7 @@ $(document).on('submit', '#add-item-form', function(event) {
 		}
 	}
 	console.log('validate: ', validate);
-	if(validate == '012345678910111213'){
+	if(validate == '012345678910'){
 		$.ajax({
 			url: '../data/addItem.php',
 			type: 'post',
@@ -108,6 +105,7 @@ function show_all_item()
 		async: false,
 		success: function(event){
 			$('#allItem').html(event);
+
 		},
 		error: function(){
 			alert('Error: show all item L100+');
@@ -119,6 +117,27 @@ function show_all_item()
 
 show_all_item();
 
+//display all item
+function show_all_item_security()
+{
+	$.ajax({
+		url: '../data/show_all_item_security.php',
+		type: 'post',
+		async: false,
+		success: function(event){
+			$('#allItemsec').html(event);
+
+		},
+		error: function(){
+			alert('Error: show all item L100+ security');
+		}
+	});
+
+	
+}
+
+show_all_item_security();
+	
 
 
 /*kung e lick ang table nga row sa item table*/
@@ -152,9 +171,96 @@ function item_profile(iID)
 		error: function(){
 			alert('Error: item_profile L136+');
 		}
+
 	});
 }//end function item_profile
 
+function violation_profile(iID)
+{
+	$('#modal-violations-profile').modal('show');
+	$.ajax({
+		url: '../data/violation_profile.php',
+		dataType: 'json',
+		type: 'post',
+		data: {
+			iID: iID
+		},
+
+		success: function(event){
+			console.log(event)
+			$('.account-number-profile').val(event.account_number);
+			$('.item-amount-profile').val(event.item_amount);
+			$('.owner-address-profile').val(event.owner_address);
+			$('.item-name-profile').val(event.item_name);
+			$('.item-serial-profile').val(event.item_serno);
+			$('.item-model-profile').val(event.item_modno);
+			$('.item-brand-profile').val(event.item_brand);
+			$('.sticker-type-profile').val(event.vehicle_sticker_type);
+			$('.sticker-number-profile').val(event.vehicle_sticker_number);
+			$('.driversName-profile').val(event.driver_name);
+			$('.dateApprehended-profile').val(event.date_apprehended);
+			$('.violationOfficer-profile').val(event.violation_officer);
+			$('.ticketNumber-profile').val(event.violation_number);
+			$('.violation-profile').val(event.violation);
+
+		},
+		error: function(){
+			alert('Error: violation_profile');
+		}
+
+	});
+
+}//end function item_profile
+
+function add_violation(iID)
+{
+	$.ajax({
+			url: '../data/item_profile.php',
+			type: 'post',
+			dataType: 'json',
+			data: { iID: iID},
+			
+			success: function (data) {
+				
+				$('#accountNumber-violation').val(data.account_number);
+				$('#ownerName').val(data.item_amount);
+				$('#plateNumber').val(data.item_name);
+				$('#iID').val(data.item_id)//iID
+				$('#modal-add-violation').modal('show');
+			},
+			error: function (){
+				
+				alert('Error: fill_update_modal L172+');
+			}
+		});
+}
+
+function add_payment(iID)
+{
+	
+	$.ajax({
+			url: '../data/payment_profile.php',
+			type: 'post',
+			dataType: 'json',
+			data: { iID: iID},
+			
+			success: function (data) {
+					
+				$('#accountNumber-payment').val(data.account_number);
+				$('#ownerName-payment').val(data.item_amount);
+				$('#plateNumber-payment').val(data.item_name);
+				$('#dateApprehended-payment').val(data.date_apprehended);
+				$('#ticketNumber-payment').val(data.violation_number);
+				$('#vID').val(data.violation_id);
+				$('#iID').val(data.vehicle_id)//iID
+				$('#modal-add-payment').modal('show');
+				console.log(data);	
+			},
+			error: function (){
+			alert('Error: add_payment');
+			}
+		});
+}
 /*
 *e fill ang update modal
 */
@@ -165,11 +271,16 @@ function fill_update_modal(iID){
 			dataType: 'json',
 			data: { iID: iID},
 			success: function (data) {
+				$('#accountNumber-update').val(data.account_number);
+				$('#ownerAddress-update').val(data.owner_address);
 				$('#itemName-update').val(data.item_name);
 				$('#serialNumber-update').val(data.item_serno);
 				$('#modelNumber-update').val(data.item_modno);
 				$('#brand-update').val(data.item_brand);
 				$('#amount-update').val(data.item_amount);
+				$('#rfidCode-update').val(data.rfid_code);
+				$('#stickerType-update').val(data.vehicle_sticker_type);
+				$('#stickerNumber-update').val(data.vehicle_sticker_number);
 				$('#purDate-update').val(data.item_purdate);
 				$('#empID-update').val(data.emp_id);
 				$('#catID-update').val(data.cat_id);
@@ -192,15 +303,17 @@ $(document).on('submit', '#update-item-form', function(event) {
 	/* Act on the event */
 	var validate = '';
 	var form_data = new Array(
+								$('input[id=accountNumber-update]'), 
+								$('input[id=ownerAddress-update]'), 
 								$('input[id=itemName-update]'), 
 								$('input[id=serialNumber-update]'), 
 								$('input[id=modelNumber-update]'), 
 								$('input[id=brand-update]'), 
 								$('input[id=amount-update]'), 
+								$('input[id=rfidCode-update]'),
+								$('input[id=stickerType-update]'),
+								$('input[id=stickerNumber-update]'),
 								$('input[id=purDate-update]'),
-								$('#empID-update'),
-								$('#catID-update'),
-								$('#conID-update'),
 								$('#iID')
 							);
 
@@ -216,7 +329,7 @@ $(document).on('submit', '#update-item-form', function(event) {
 	}
 
 
-	if(validate == '0123456789'){
+	if(validate == '01234567891011'){
 		$.ajax({
 				url: '../data/update_item.php',
 				type: 'post',
@@ -233,11 +346,121 @@ $(document).on('submit', '#update-item-form', function(event) {
 					}
 				},
 				error: function (){
+					console.log(validate);
 					alert('Error: update item L250+');
 				}
 			});
 	}//end valdidate
 });//end submit $update-item-form
+
+$(document).on('submit', '#add-violation-form', function(event) {
+	event.preventDefault();
+	/* Act on the event */
+	var validate = '';
+	var form_data = new Array(
+								$('input[id=driverName]'), 
+								$('input[id=dateApprehended]'), 
+								$('input[id=violationOfficer]'), 
+								$('input[id=ticketNumber]'),
+								$('input[id=violation]'),
+								$('#iID'),
+								$('#status')
+							);
+
+	var data = new Array(form_data.length);
+	//console.log("data", data);
+	for(var i = 0; i < form_data.length; i++){
+		if(form_data[i].val().length == 0){
+			form_data[i].parent().parent().addClass('has-error');
+		}else{
+			form_data[i].parent().parent().removeClass('has-error');
+			data[i] = form_data[i].val();
+			validate += i;
+			
+
+		}
+		
+	}
+	//console.log("validate", validate);
+
+	if(validate == '012345'){
+		$.ajax({
+				url: '../data/add_violation.php',
+				type: 'post',
+				dataType: 'json',
+				data: {
+					data: JSON.stringify(data)
+				},
+				success: function (data) {
+
+					if(data.valid == valid){
+						$('#modal-add-violation').modal('hide');
+						$('#modal-message-box').find('.modal-body').text(data.msg);
+						$('#modal-message-box').modal('show');
+						show_all_item();
+					}
+				},
+				error: function (){
+					alert('Error: update item L250+');
+				}
+			});
+	}//end valdidate
+});
+
+$(document).on('submit', '#add-payment-form', function(event) {
+	event.preventDefault();
+	/* Act on the event */
+	var validate = '';
+	var form_data = new Array(
+								$('input[id=amount_payment]'), 
+								$('input[id=or_number]'), 
+								$('input[id=paymentDate]'),
+								$('#vID'),
+								$('#iID')
+							);
+
+	var data = new Array(form_data.length);
+	for(var i = 0; i < form_data.length; i++){
+		if(form_data[i].val().length == 0){
+			form_data[i].parent().parent().addClass('has-error');
+		}else{
+			form_data[i].parent().parent().removeClass('has-error');
+			data[i] = form_data[i].val();
+			validate += i;
+			
+
+		}
+		console.log("data", data)
+	}
+
+
+
+	if(validate == '01234'){
+		$.ajax({
+				url: '../data/add_payment.php',
+				type: 'post',
+				dataType: 'json',
+				data: {
+					data: JSON.stringify(data)
+				},
+				success: function (data) {
+					
+					console.log("data", data)
+					if(data.valid == valid){
+						$('#modal-add-payment').modal('hide');
+						$('#modal-message-box').find('.modal-body').text(data.msg);
+						$('#modal-message-box').modal('show');
+						violation_list();
+					}
+				},
+				error: function (){
+					console.log("validate", validate)
+					console.log("data", data);
+					alert('Error: [payment]');
+				}
+			});
+	}//end valdidate
+});
 
 /*
 *employee logic begin here
@@ -558,6 +781,24 @@ function all_request_to_admin()
 }
 all_request_to_admin();
 
+//violation list
+function violation_list()
+{
+	$.ajax({
+			url: '../data/get_violations.php',
+			type: 'post',
+			success: function (data) {
+				// console.log(data);
+				$('#myTable-violations').html(data);
+			},
+			error: function(){
+				alert('Error: violations');
+			}
+		});
+}
+violation_list();
+
+
 //request_action
 var action = '';
 var request_id = '';
@@ -636,7 +877,7 @@ $(document).on('submit', '#form-changepassword', function(event) {
 							$('#modal-message-box').modal('show');
 							$('#modal-message-box').find('.modal-body').text(data.msg);
 						}else{
-							alert('Opps: Somethings went wrong! check db!');
+							alert('Oops: Something went wrong! check db!');
 						}
 					},
 					error: function(){
@@ -769,7 +1010,7 @@ $(document).on('submit', '#upt-position-form', function(event) {
 function get_offices()
 {
 	$.ajax({
-			url: '../data/get_offices.php',
+			url: '../data/get_violations.php',
 			type: 'post',
 			success: function (data) {
 				$('#offices').html(data);
@@ -856,6 +1097,7 @@ function show_report(){
 				choice: 'all'
 			},
 			success: function (data) {
+
 				$('#show-report').html(data);
 			},
 			error: function(){
