@@ -7,9 +7,9 @@ include_once('../include/header.php'); ?>
   	<div class="container-fluid">
    	 
   	  <ul class="nav navbar-nav">
-  	    <li>
+<!--   	    <li>
           <a href="index.php"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a>
-        </li>
+        </li> -->
      
   	    <li>
           <a href="item.php"><span class="glyphicon glyphicon-object-align-vertical"></span> Vehicle
@@ -55,19 +55,23 @@ include_once('../include/header.php'); ?>
 
  			 	<div class="panel-heading">
         <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
-        All Open Violations Report</div>
+        All Violations Report</div>
   	  			<div class="panel-body">
               <!-- main content -->
               <b>Filter:</b>
                 <select class="btn btn-default" id="report-choice">
                   <option value="all">All</option>
-                  <option value="today">Today</option>
+                  <option value="today">All Violations Today</option>
+                  <option value="7">All Unpaid last 7 days</option>
+                  <option value="30">All Unpaid last 30 days</option>
+                  <option value="60">All Unpaid last 60 days</option>
                 </select>
                 
                 <button id="print-btn" type="button" class="btn btn-success">
                 PRINT
                 <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
                 </button>
+
                 <div id="show-report"></div>
 
               <!-- /main content -->

@@ -8,8 +8,8 @@ $result = $item->violation_list();
 // echo '</pre>';
 
 ?>
-
-<table id="myTable-violation" class="table table-bordered table-hover" cellspacing="0" width="100%">
+<div class="table-responsive">
+<table id="myTable-violation" class="table table-bordered table-hover" cellspacing="0" width="100%" style="overflow: hidden">
 	<thead>
 	    <tr>
 	    	<td><center>Actions</center></td>
@@ -48,7 +48,7 @@ $result = $item->violation_list();
  		<?php endforeach; ?>
  	</tbody>
 </table>
-
+</div>
 
 <?php 
 $item->Disconnect();
@@ -57,8 +57,12 @@ $item->Disconnect();
 <!-- for the datatable of employee -->
 <script type="text/javascript">
 	$(document).ready(function() {
-		$('#myTable-violation').DataTable();
+		$('#myTable-violation').DataTable({
+			responsive:true
+		});
 	});
+
+
 </script>
 
 

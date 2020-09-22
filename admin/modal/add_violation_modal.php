@@ -1,4 +1,5 @@
 <?php 
+// require_once('../../index.php'); 
 require_once('../class/Item.php'); 
 require_once('../class/Employee.php'); 
 
@@ -6,8 +7,8 @@ $employees = $employee->get_employees();
 $categories = $item->item_categories();
 $conditions = $item->item_conditions();
 
+?> 
 
-?>
 <div class="modal fade" id="modal-add-violation">
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -76,6 +77,25 @@ $conditions = $item->item_conditions();
 					    </div>
 					  </div>
 
+<!-- 					  <div class="form-group">
+					    <label class="control-label col-sm-3" for="violation">Violation:</label>
+					    <div class="col-sm-9"> 
+						    <select class="form-control" id="basic-multiple" name="states[]" multiple="multiple" style="width: 100%">
+							  <option value="1">Vehicle has no valid Parking Permit</option>
+							  <option value="2">Parked in No Parking Area/Space</option>
+							  <option value="3">Parked in Fire Lane</option>
+							  <option value="4">Improperly parked in bay</option>
+							  <option value="5">Parked in reserved or assigned space</option>
+							  <option value="6">Double Parking</option>
+							  <option value="7">Blocking driveway or access</option>
+							  <option value="8">Blocking other vehicle</option>
+							  <option value="9">Parked in two spaces</option>
+							  <option value="10">Parked in handicapped Space</option>
+							  <option value="11">Parked in Visitor's bay</option>
+							</select>
+					    </div>
+					  </div> -->
+
 					  <div class="form-group"> 
 					    <div class="modal-footer">
 					      <button type="submit" id="btn-add-violation" class="btn btn-primary">Save
@@ -91,3 +111,22 @@ $conditions = $item->item_conditions();
 		</div>
 	</div>
 </div>
+
+
+<!-- <script type="text/javascript">
+$('#basic-multiple').select2({
+  dropdownParent: $('#modal-add-violation')
+});
+
+$('body').on('shown.bs.modal', '.modal', function() {
+  $(this).find('select').each(function() {
+    var dropdownParent = $(document.body);
+    if ($(this).parents('.modal.in:first').length !== 0)
+      dropdownParent = $(this).parents('.modal.in:first');
+    $(this).select2({
+      dropdownParent: dropdownParent
+      // ...
+    });
+  });
+});
+</script> -->

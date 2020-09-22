@@ -97,6 +97,11 @@ $(document).on('submit', '#add-item-form', function(event) {
 });//submit #add-item-form
 
 //display all item
+
+$(document).ready(function() {
+    $('#js-example-basic-multiple').select2();
+});
+
 function show_all_item()
 {
 	$.ajax({
@@ -227,6 +232,8 @@ function add_violation(iID)
 				$('#plateNumber').val(data.item_name);
 				$('#iID').val(data.item_id)//iID
 				$('#modal-add-violation').modal('show');
+				$('#basic-multiple').select2();
+				
 			},
 			error: function (){
 				
@@ -357,17 +364,21 @@ $(document).on('submit', '#add-violation-form', function(event) {
 	event.preventDefault();
 	/* Act on the event */
 	var validate = '';
+	// $violations = $('#basic-multiple');
+	// $selections = json_decode($violations);
 	var form_data = new Array(
 								$('input[id=driverName]'), 
 								$('input[id=dateApprehended]'), 
 								$('input[id=violationOfficer]'), 
 								$('input[id=ticketNumber]'),
 								$('input[id=violation]'),
+								// $violations,
 								$('#iID'),
 								$('#status')
 							);
 
 	var data = new Array(form_data.length);
+	console.log("validate", form_data);
 	//console.log("data", data);
 	for(var i = 0; i < form_data.length; i++){
 		if(form_data[i].val().length == 0){
@@ -381,7 +392,7 @@ $(document).on('submit', '#add-violation-form', function(event) {
 		}
 		
 	}
-	//console.log("validate", validate);
+
 
 	if(validate == '012345'){
 		$.ajax({
@@ -394,6 +405,7 @@ $(document).on('submit', '#add-violation-form', function(event) {
 				success: function (data) {
 
 					if(data.valid == valid){
+						console.log(data);
 						$('#modal-add-violation').modal('hide');
 						$('#modal-message-box').find('.modal-body').text(data.msg);
 						$('#modal-message-box').modal('show');
@@ -401,6 +413,7 @@ $(document).on('submit', '#add-violation-form', function(event) {
 					}
 				},
 				error: function (){
+					console.log(data);
 					alert('Error: update item L250+');
 				}
 			});
