@@ -70,17 +70,17 @@ $conditions = $item->item_conditions();
 					    </div>
 					  </div>	
 
-					  <div class="form-group">
+<!-- 					  <div class="form-group">
 					    <label class="control-label col-sm-3" for="violation">Violation:</label>
 					    <div class="col-sm-9"> 
 					      <input type="text" class="form-control" id="violation" placeholder="Enter Violation">
 					    </div>
-					  </div>
+					  </div> -->
 
-<!-- 					  <div class="form-group">
+					  <div class="form-group">
 					    <label class="control-label col-sm-3" for="violation">Violation:</label>
 					    <div class="col-sm-9"> 
-						    <select class="form-control" id="basic-multiple" name="states[]" multiple="multiple" style="width: 100%">
+						    <select class="form-control" id="basic-multiple[]" name="states" multiple="multiple" style="width: 100%">
 							  <option value="1">Vehicle has no valid Parking Permit</option>
 							  <option value="2">Parked in No Parking Area/Space</option>
 							  <option value="3">Parked in Fire Lane</option>
@@ -94,7 +94,7 @@ $conditions = $item->item_conditions();
 							  <option value="11">Parked in Visitor's bay</option>
 							</select>
 					    </div>
-					  </div> -->
+					  </div>
 
 					  <div class="form-group"> 
 					    <div class="modal-footer">

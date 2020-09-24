@@ -14,7 +14,6 @@
   <link href="../assets/css/dataTables.bootstrap.min.css" rel="stylesheet">
 
   <link href="../assets/css/select2.min.css" rel="stylesheet" />
-  <link rel="stylesheet" type="text/css" href="../assets/css/datatables.css">
    <link rel="stylesheet" type="text/css" href="../assets/css/responsive.dataTables.css">
 
 </head>
