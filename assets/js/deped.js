@@ -364,37 +364,36 @@ $(document).on('submit', '#add-violation-form', function(event) {
 	event.preventDefault();
 	/* Act on the event */
 	var validate = '';
-	// $violations = $('#basic-multiple');
-	// $selections = json_decode($violations);
+	var violations = $('#basic-multiple').val().toString();
 	var form_data = new Array(
 								$('input[id=driverName]'), 
 								$('input[id=dateApprehended]'), 
 								$('input[id=violationOfficer]'), 
 								$('input[id=ticketNumber]'),
-								$('input[id=violation]'),
-								// $violations,
+								$('select[id=basic-multiple]'),
 								$('#iID'),
 								$('#status')
 							);
 
 	var data = new Array(form_data.length);
-	console.log("validate", form_data);
-	//console.log("data", data);
+
 	for(var i = 0; i < form_data.length; i++){
-		if(form_data[i].val().length == 0){
+		if(form_data[i].length == 0){
 			form_data[i].parent().parent().addClass('has-error');
 		}else{
 			form_data[i].parent().parent().removeClass('has-error');
-			data[i] = form_data[i].val();
-			validate += i;
-			
 
+			if (form_data[i] == form_data[4]){
+				data[4] = violations;
+				validate += i;
+			}else{
+				data[i] = form_data[i].val();
+				validate += i;
+			}
 		}
-		
 	}
 
-
-	if(validate == '012345'){
+	if(validate == '0123456'){
 		$.ajax({
 				url: '../data/add_violation.php',
 				type: 'post',
@@ -405,7 +404,7 @@ $(document).on('submit', '#add-violation-form', function(event) {
 				success: function (data) {
 
 					if(data.valid == valid){
-						console.log(data);
+						console.log("success",data);
 						$('#modal-add-violation').modal('hide');
 						$('#modal-message-box').find('.modal-body').text(data.msg);
 						$('#modal-message-box').modal('show');
@@ -413,11 +412,11 @@ $(document).on('submit', '#add-violation-form', function(event) {
 					}
 				},
 				error: function (){
-					console.log(data);
+					console.log("failed", data);
 					alert('Error: update item L250+');
 				}
 			});
-	}//end valdidate
+	}//end validdate
 });
 
 $(document).on('submit', '#add-payment-form', function(event) {
@@ -440,10 +439,7 @@ $(document).on('submit', '#add-payment-form', function(event) {
 			form_data[i].parent().parent().removeClass('has-error');
 			data[i] = form_data[i].val();
 			validate += i;
-			
-
 		}
-		console.log("data", data)
 	}
 
 

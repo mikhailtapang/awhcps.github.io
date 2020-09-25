@@ -80,7 +80,7 @@ $conditions = $item->item_conditions();
 					  <div class="form-group">
 					    <label class="control-label col-sm-3" for="violation">Violation:</label>
 					    <div class="col-sm-9"> 
-						    <select class="form-control" id="basic-multiple[]" name="states" multiple="multiple" style="width: 100%">
+						    <select class="form-control" id="basic-multiple" name="states[]" multiple="multiple" style="width: 100%">
 							  <option value="1">Vehicle has no valid Parking Permit</option>
 							  <option value="2">Parked in No Parking Area/Space</option>
 							  <option value="3">Parked in Fire Lane</option>
