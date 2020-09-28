@@ -66,7 +66,9 @@ $item->Disconnect();
 <!-- for the datatable of item -->
 <script type="text/javascript">
 	$(document).ready(function() {
-		$('#myTable').DataTable();
+		$('#myTable').DataTable({
+			responsive:true
+		});
 	});
 
 

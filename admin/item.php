@@ -16,18 +16,18 @@ include_once('../include/header.php'); ?>
           </a>
         </li> 
   	    
-  	    <!-- <li>
+  	    <li>
           <a href="employee.php"><span class="glyphicon glyphicon-user"></span> Employee</a>
         </li>
 
-        <li>
+<!--         <li>
           <a href="position.php"><span class="glyphicon glyphicon-tasks"></span> Position</a>
         </li>
 
         <li>
           <a href="office.php"><span class="glyphicon glyphicon-home"></span> Office</a>
-        </li>
- -->
+        </li> -->
+
   	    <li>
           <a href="request.php"><span class="glyphicon glyphicon-tags"></span>  Violations</a>
         </li>

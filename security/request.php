@@ -1,4 +1,4 @@
-Z<?php 
+<?php 
 include_once('../data/admin_session.php');//check if naay session otherwise e return sa login
 include_once('../include/header.php');
 include_once('../include/banner.php'); 
@@ -33,9 +33,9 @@ include_once('../include/banner.php');
           <a href="request.php"><span class="glyphicon glyphicon-tags"></span> Violations</a>
         </li>
 
-        <li>
+<!--         <li>
           <a href="report.php"><span class="glyphicon glyphicon-list-alt"></span> Report</a>
-        </li>
+        </li> -->
       </ul>
      <ul class="nav navbar-nav navbar-right">
          <li class="dropdown">
@@ -50,16 +50,16 @@ include_once('../include/banner.php');
    </div>
   </nav>
 
-  <div id="right_content" >
+  <div id="right_content_security" >
     <div class="panel-group">
        <div class="panel panel-primary">
 
         <div class="panel-heading">
         <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
-        Violations</div>
+        Pending violations</div>
             <div class="panel-body">
               <!-- main content -->
-                <div id="myTable-violations"></div>
+                <div id="myTable-violationsSec"></div>
               <!-- /main content -->
               <br />
             </div>

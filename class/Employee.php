@@ -18,7 +18,7 @@ class Employee extends Database implements iEmployee {
 		}
 	}
 
-	public function insert_employee($fN, $mN, $lN, $pos, $off, $type)
+	public function insert_employee($fN, $mN, $lN, $type)
 	{
 		$un = $fN.'_'.$lN;
 		$pass = $fN.'_'.$lN; $pass = md5($pass);
@@ -26,19 +26,19 @@ class Employee extends Database implements iEmployee {
 		$mN = ucwords($mN);
 		$lN = ucwords($lN);
 		$sql = "INSERT INTO tbl_employee
-				(emp_fname, emp_mname, emp_lname, pos_id, off_id, type_id, emp_un, emp_pass)
-				VALUES(?, ?, ?, ?, ?, ?, ?, ?);
+				(emp_fname, emp_mname, emp_lname, type_id, emp_un, emp_pass)
+				VALUES(?, ?, ?, ?, ?, ?);
 				";
-		return $this->insertRow($sql, [$fN, $mN, $lN, $pos, $off, $type, $un, $pass]);
+		return $this->insertRow($sql, [$fN, $mN, $lN, $type, $un, $pass]);
 	}
 
-	public function update_employee($fN, $mN, $lN, $pos, $off, $type, $eid)
+	public function update_employee($fN, $mN, $lN, $type, $eid)
 	{
 		$sql = "UPDATE tbl_employee
-				SET emp_fname = ?, emp_mname = ?, emp_lname = ?, pos_id = ?, off_id = ?, type_id = ?
+				SET emp_fname = ?, emp_mname = ?, emp_lname = ?, type_id = ?
 				WHERE emp_id = ?;
 		";
-		return $this->updateRow($sql, [$fN, $mN, $lN, $pos, $off, $type, $eid]);
+		return $this->updateRow($sql, [$fN, $mN, $lN, $type, $eid]);
 	}
 
 	public function get_employee($emp_id)

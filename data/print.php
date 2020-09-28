@@ -2,6 +2,8 @@
 <html lang="en">
 <?php 
 require_once('../class/Item.php');
+
+
 if(isset($_GET['choice'])){
     $choice = $_GET['choice'];
 

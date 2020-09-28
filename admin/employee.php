@@ -15,11 +15,11 @@ include_once('../include/header.php'); ?>
           <a href="item.php"><span class="glyphicon glyphicon-object-align-vertical"></span> Vehicles</a>
         </li>
   	    
-  	   <!--  <li class="active">
+        <li>
           <a href="employee.php"><span class="glyphicon glyphicon-user"></span> Employee</a>
         </li>
 
-        <li>
+<!--         <li>
           <a href="position.php"><span class="glyphicon glyphicon-tasks"></span> Position</a>
         </li>
 

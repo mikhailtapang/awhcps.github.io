@@ -1,6 +1,8 @@
+
 <?php 
 include_once('../data/admin_session.php');//check if naay session otherwise e return sa login
 include_once('../include/header.php'); ?>
+
 <?php include_once('../include/banner.php'); ?>
 
   <nav class="navbar navbar-inverse" style="margin-top:-18px;">
@@ -12,22 +14,21 @@ include_once('../include/header.php'); ?>
         </li> -->
      
   	    <li>
-          <a href="item.php"><span class="glyphicon glyphicon-object-align-vertical"></span> Vehicle
+          <a href="item.php"><span class="glyphicon glyphicon-dashboard"></span> Vehicle
           </a>
         </li>
   	    
-<!--   	    <li>
+        <li>
           <a href="employee.php"><span class="glyphicon glyphicon-user"></span> Employee</a>
         </li>
 
-        <li>
+<!--         <li>
           <a href="position.php"><span class="glyphicon glyphicon-tasks"></span> Position</a>
         </li>
 
         <li>
           <a href="office.php"><span class="glyphicon glyphicon-home"></span> Office</a>
-        </li>
- -->
+        </li> -->
   	    <li>
           <a href="request.php"><span class="glyphicon glyphicon-tags"></span> Request</a>
         </li>
@@ -71,6 +72,11 @@ include_once('../include/header.php'); ?>
                 PRINT
                 <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
                 </button>
+
+<!--                 <button id="pdf-btn" type="button" class="btn btn-success">
+                Download PDF
+                <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+                </button> -->
 
                 <div id="show-report"></div>
 

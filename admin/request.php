@@ -12,15 +12,15 @@ include_once('../include/header.php'); ?>
         </li>
      
  -->  	    <li>
-          <a href="item.php"><span class="glyphicon glyphicon-object-align-vertical"></span> Vehicle
+          <a href="item.php"><span class="glyphicon glyphicon-dashboard"></span> Vehicle
           </a>
         </li>
   	    
-<!--   	    <li>
+        <li>
           <a href="employee.php"><span class="glyphicon glyphicon-user"></span> Employee</a>
         </li>
 
-        <li>
+<!--         <li>
           <a href="position.php"><span class="glyphicon glyphicon-tasks"></span> Position</a>
         </li>
 
@@ -55,7 +55,7 @@ include_once('../include/header.php'); ?>
 
  			 	<div class="panel-heading">
         <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
-        Violations</div>
+        Pending violations</div>
   	  			<div class="panel-body">
               <!-- main content -->
                 <div id="myTable-violations"></div>

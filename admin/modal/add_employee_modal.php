@@ -43,43 +43,6 @@ $account_types = $employee->employee_account_types();
 					    </div>
 					  </div>
 
-
-				      <div class="form-group">
-					    <label class="control-label col-sm-3" for="position">Position:</label>
-					    <div class="col-sm-9">
-					      <select class="btn btn-default" id="position">
-					      	<?php 
-					      		foreach ($positions as $pos) {
-					      			# code...
-					      			$pos_id = $pos['pos_id'];
-					      			$pos_desc = $pos['pos_desc'];
-					      	?>
-					      		<option value="<?php echo $pos_id; ?>"><?php echo $pos_desc; ?></option>
-					      	<?php		
-					      		}//end foreach
-					      	 ?>
-					      </select>
-					    </div>
-					  </div>
-
-					  <div class="form-group">
-					    <label class="control-label col-sm-3" for="position">Office:</label>
-					    <div class="col-sm-9">
-					      <select class="btn btn-default" id="office">
-					      	<?php 
-					      		foreach ($offices as $off) {
-					      			# code...
-					      			$off_id = $off['off_id'];
-					      			$off_desc = $off['off_desc'];
-					      	?>
-					      		<option value="<?php echo $off_id; ?>"><?php echo $off_desc; ?></option>
-					      	<?php		
-					      		}//end foreach
-					      	 ?>
-					      </select>
-					    </div>
-					  </div>
-
 					    <div class="form-group">
 					    <label class="control-label col-sm-3" for="position">Account Type:</label>
 					    <div class="col-sm-9">
