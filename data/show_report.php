@@ -12,13 +12,14 @@ if(isset($_POST['choice'])){
 
 <br />
 <br />
-<table id="myTable-report" class="table table-bordered table-hover" cellspacing="0" width="100%">
+<table id="myTable-report" class="table table-bordered table-hover" cellspacing="0" width="100%" style="float:right;">
 	<thead>
 	    <tr>
 	        <th>Plate Number</th>
 	        <th>Owner</th>
-	        <th>Violation</th>
 	        <th>Model</th>
+	    	<th>Violation</th>
+	        <th>Violation Number</th>
 	        <th>Date</th>
 	    </tr>
 	</thead>
@@ -34,8 +35,9 @@ if(isset($_POST['choice'])){
     		<tr>
     			<td><?= $r['item_name']; ?></td>
     			<td><?= $r['item_amount']; ?></td>
-    			<td><?= $r['violation']; ?></td>
     			<td><?= $r['item_modno']; ?> <?= $r['item_brand']; ?></td>
+    			<td><?= $r['violation']; ?></td>
+    			<td><?= $r['violation_number']; ?></td>
     			<td><?= $r['date_apprehended']; ?></td>
     		</tr>
     	<?php endforeach; ?>

@@ -16,22 +16,20 @@ $allItemsec = $item->get_all_items();
 	        <th>Owner</th>
 	        <th>Model</th>
 	        <th>Color</th>
-	        <th>Condition</th>
-
 	    </tr>
 	</thead>
     <tbody>
 		<?php 
 			foreach ($allItemsec as $i) {
 				# code...
-				$fN = $i['emp_fname'];
-				$mN = $i['emp_mname'];
-				$mN = $mN[0].'.';
-				$lN = $i['emp_lname'];
-				$fullName = "$fN $mN $lN";
-				$fullName = ucwords($fullName);
+				// $fN = $i['emp_fname'];
+				// $mN = $i['emp_mname'];
+				// $mN = $mN[0].'.';
+				// $lN = $i['emp_lname'];
+				// $fullName = "$fN $mN $lN";
+				// $fullName = ucwords($fullName);
 
-		?>
+		?> 
 			<tr>
 				<td align="center" style='white-space: nowrap'>
     				<div class="col-sm">
@@ -51,12 +49,7 @@ $allItemsec = $item->get_all_items();
 				<!-- <td onclick="item_profile('<?php echo $i['item_id']; ?>');"><?php echo $fullName; ?></td> -->
 				<td onclick="item_profile('<?php echo $i['item_id']; ?>');"><?php echo ucwords($i['item_modno']); ?> <?php echo ucwords($i['item_brand']); ?></td>
 				<td onclick="item_profile('<?php echo $i['item_id']; ?>');"><?php echo ucwords($i['item_serno']); ?></td>
-				<td <?php $cond = $i['con_id']; if($cond == 1){echo 'class="text-success"';} if($cond == 2){echo 'class="text-danger"';}?>
-				onclick="item_profile('<?php echo $i['item_id']; ?>');">
-					<strong>
-						<?php echo ucfirst($i['con_desc']); ?>
-					</strong>
-				</td>
+
 
 			</tr>
 		<?php		

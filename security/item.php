@@ -7,12 +7,12 @@ include_once('../include/header.php'); ?>
   	<div class="container-fluid">
    	 
   	  <ul class="nav navbar-nav">
-  	    <li>
+<!--   	    <li>
           <a href="index.php"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a>
-        </li>
+        </li> -->
      
   	    <li class="active">
-          <a href="item.php"><span class="glyphicon icon-car"></span> Vehicle
+          <a href="item.php"><span class="glyphicon glyphicon-dashboard"></span> Vehicle
           </a>
         </li> 
   	    

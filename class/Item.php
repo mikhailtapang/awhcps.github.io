@@ -63,7 +63,7 @@ class Item extends Database implements iItem{
 		/*get all items with the office nga naa sa emp*/
 		$sql = "SELECT *
 				FROM tbl_item i
-				ORDER by i.item_name
+				ORDER by i.item_id DESC
 		";
 		$result = $this->getRows($sql);
 		return $result;
@@ -121,6 +121,10 @@ class Item extends Database implements iItem{
 		$sql = "";
 		date_default_timezone_set('Asia/Singapore');
 		$date = date('Y-m-d');
+		$dateSeven = date('Y-m-d', strtotime('-7 days'));
+		$dateThirty = date('Y-m-d', strtotime('-1 month'));
+		$dateSixty = date('Y-m-d', strtotime('-2 month'));
+		$unpaid = 1;
 
 		if($choice == 'today'){
 			$sql = "SELECT *
@@ -128,16 +132,48 @@ class Item extends Database implements iItem{
 					INNER JOIN tbl_violations v
 					ON i.item_id = v.vehicle_id
 					WHERE v.date_apprehended = ?";
+					return $this->getRows($sql, [$date]);
 
-			return $this->getRows($sql, [$date]);
-		}	else {
+		}	
+			elseif ($choice == '7'){
 			$sql = "SELECT *
 					FROM tbl_item i 
 					INNER JOIN tbl_violations v
-					ON i.item_id = v.vehicle_id";
-				return $this->getRows($sql, [1]);
+					ON i.item_id = v.vehicle_id
+					WHERE v.status = ?
+					and v.date_apprehended >= ?";
+					return $this->getRows($sql, [$unpaid, $dateSeven]);
 
-			}
+		}
+
+			elseif($choice == '30'){
+			$sql = "SELECT *
+					FROM tbl_item i 
+					INNER JOIN tbl_violations v
+					ON i.item_id = v.vehicle_id
+					WHERE v.status = ?
+					and v.date_apprehended >= ?";
+					return $this->getRows($sql, [$unpaid, $dateThirty]);
+		}	
+			elseif ($choice == '60'){
+			$sql = "SELECT *
+					FROM tbl_item i 
+					INNER JOIN tbl_violations v
+					ON i.item_id = v.vehicle_id
+					WHERE v.status = ?
+					and v.date_apprehended >= ?";
+					return $this->getRows($sql, [$unpaid, $dateSixty]);
+
+		}
+			else {
+			$sql = "SELECT *
+					FROM tbl_item i 
+					INNER JOIN tbl_violations v
+					ON i.item_id = v.vehicle_id
+					ORDER BY v.date_apprehended DESC";
+					return $this->getRows($sql);
+
+		}			
 	}//end item_report
 
 		public function violation_list()

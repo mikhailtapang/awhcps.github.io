@@ -8,8 +8,8 @@ $result = $item->violation_list();
 // echo '</pre>';
 
 ?>
-
-<table id="myTable-violation" class="table table-bordered table-hover" cellspacing="0" width="100%">
+<div class="table-responsive">
+<table id="myTable-violation" class="table table-bordered table-hover" cellspacing="0" width="100%" style="overflow: hidden">
 	<thead>
 	    <tr>
 	    	<td><center>Actions</center></td>
@@ -17,7 +17,8 @@ $result = $item->violation_list();
 	        <td><center>Owner</center></td>
 	        <td><center>Violation</center></td>
 	        <td><center>Date</center></td>
-	        <th><center>Violation officer</center></th>
+	        <td><center>Violation officer</center></td>
+	        <td><center>Ticket Citation Number</center></td>
 	    </tr>
 	</thead>
  	<tbody>
@@ -27,8 +28,10 @@ $result = $item->violation_list();
  		$v = $r['violation'];
  		$dA = $r['date_apprehended'];
  		$vO = $r['violation_officer'];
-
-
+ 		$vN = $r['violation_number'];
+ 		$violationArray = array(",");
+ 		$newLine = '<br/>';
+ 		$newstr = str_replace($violationArray, $newLine, $v);
  		$text_color = '';
  	 ?>
  		<tr>
@@ -41,14 +44,18 @@ $result = $item->violation_list();
  			</td>
  			<td align ='center' onclick="violation_profile('<?php echo $r['violation_id']; ?>');"<?= $text_color; ?> ><?= $pN; ?></td>
  			<td align ='center' onclick="violation_profile('<?php echo $r['violation_id']; ?>');"<?= $text_color; ?> ><?= $o; ?></td>
- 			<td align ='center' onclick="violation_profile('<?php echo $r['violation_id']; ?>');"<?= $text_color; ?> ><?= $v; ?></td>
- 			<td align ='center' onclick="violation_profile('<?php echo $r['violation_id']; ?>');"<?= $text_color; ?> ><?= $dA; ?></td>
+ 			<td style= "white-space: nowrap;" onclick="violation_profile('<?php echo $r['violation_id']; ?>');"<?= $text_color; ?> ><?= $newstr; ?></td>
+
+ 			<td align ='center' style= "white-space: nowrap;" onclick="violation_profile('<?php echo $r['violation_id']; ?>');"<?= $text_color; ?> ><?= $dA; ?></td>
+
  			<td align ='center' onclick="violation_profile('<?php echo $r['violation_id']; ?>');"<?= $text_color; ?> ><?= $vO; ?></td>
+
+ 			<td align ='center' onclick="violation_profile('<?php echo $r['violation_id']; ?>');"<?= $text_color; ?> ><?= $vN; ?></td>
  		</tr>
  		<?php endforeach; ?>
  	</tbody>
 </table>
-
+</div>
 
 <?php 
 $item->Disconnect();
@@ -57,8 +64,12 @@ $item->Disconnect();
 <!-- for the datatable of employee -->
 <script type="text/javascript">
 	$(document).ready(function() {
-		$('#myTable-violation').DataTable();
+		$('#myTable-violation').DataTable({
+			responsive:true
+		});
 	});
+
+
 </script>
 
 

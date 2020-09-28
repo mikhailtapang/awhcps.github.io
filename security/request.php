@@ -1,4 +1,4 @@
-<?php 
+Z<?php 
 include_once('../data/admin_session.php');//check if naay session otherwise e return sa login
 include_once('../include/header.php');
 include_once('../include/banner.php'); 
@@ -8,12 +8,12 @@ include_once('../include/banner.php');
     <div class="container-fluid">
      
       <ul class="nav navbar-nav">
-        <li>
+<!--         <li>
           <a href="index.php"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a>
-        </li>
+        </li> -->
      
         <li>
-          <a href="item.php"><span class="glyphicon glyphicon-object-align-vertical"></span> Vehicle
+          <a href="item.php"><span class="glyphicon glyphicon-dashboard"></span> Vehicle
           </a>
         </li>
         
