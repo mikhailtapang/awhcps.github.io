@@ -489,8 +489,6 @@ $(document).on('submit', '#add-employee-form', function(event) {
 								$('input[id=fN]'), 
 								$('input[id=mN]'), 
 								$('input[id=lN]'),
-								$('#position'),
-								$('#office'),
 								$('#type')
 							);
 	var data = new Array(form_data.length);
@@ -505,7 +503,7 @@ $(document).on('submit', '#add-employee-form', function(event) {
 		}
 	}
 
-	if(validate == '012345'){
+	if(validate == '0123'){
 		$.ajax({
 				url: '../data/add_employee.php',
 				type: 'post',
@@ -708,8 +706,6 @@ function edit_employee_fill(eid){
 					$('#update-fN').val(data.emp_fname);
 					$('#update-mN').val(data.emp_mname);
 					$('#update-lN').val(data.emp_lname);
-					$('#update-position').val(data.pos_id);
-					$('#update-office').val(data.off_id);
 					$('#update-type').val(data.type_id);
 
 					$('#update-eid').val(eid);
@@ -730,8 +726,6 @@ $(document).on('submit', '#update-employee-form', function(event) {
 									$('#update-fN'),	
 									$('#update-mN'),	
 									$('#update-lN'),	
-									$('#update-position'),	
-									$('#update-office'),	
 									$('#update-type'),
 									$('#update-eid')
 								);
@@ -748,7 +742,7 @@ $(document).on('submit', '#update-employee-form', function(event) {
 	}
 
 
-	if(validate == "0123456"){
+	if(validate == "01234"){
 		$.ajax({
 				url: '../data/update_employee.php',
 				type: 'post',
@@ -764,6 +758,7 @@ $(document).on('submit', '#update-employee-form', function(event) {
 					}
 				},
 				error: function(){
+					console.log(validate);
 					alert('Error: L485+ update_employee');
 				}
 			});
@@ -806,6 +801,23 @@ function violation_list()
 		});
 }
 violation_list();
+
+//violation list
+function violation_listSec()
+{
+	$.ajax({
+			url: '../data/get_violationssec.php',
+			type: 'post',
+			success: function (data) {
+				// console.log(data);
+				$('#myTable-violationsSec').html(data);
+			},
+			error: function(){
+				alert('Error: violations');
+			}
+		});
+}
+violation_listSec();
 
 
 //request_action
@@ -1121,3 +1133,10 @@ $('#print-btn').click(function(event) {
 	var choice = $('#report-choice').val();
 	window.open('../data/print.php?choice='+choice,'name','width=600,height=400');
 });
+
+$('#pdf-btn').click(function(event) {
+	/* Act on the event */
+	var choice = $('#report-choice').val();
+	window.open('../data/savepdf.php?choice='+choice,'name','width=600,height=400');
+});
+

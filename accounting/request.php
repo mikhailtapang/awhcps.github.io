@@ -56,7 +56,7 @@ include_once('../include/banner.php');
 
  			 	<div class="panel-heading">
         <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
-        Violations</div>
+        Pending violations</div>
   	  			<div class="panel-body">
               <!-- main content -->
                 <div id="myTable-violations"></div>

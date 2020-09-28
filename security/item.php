@@ -32,9 +32,9 @@ include_once('../include/header.php'); ?>
           <a href="request.php"><span class="glyphicon glyphicon-tags"></span>  Violations</a>
         </li>
 
-  	    <li>
+<!--   	    <li>
           <a href="report.php"><span class="glyphicon glyphicon-list-alt"></span> Report</a>
-        </li>
+        </li> -->
   	  </ul>
   	   <ul class="nav navbar-nav navbar-right">
          <li class="dropdown">

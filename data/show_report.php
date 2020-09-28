@@ -1,5 +1,6 @@
 <?php 
 require_once('../class/Item.php');
+
 if(isset($_POST['choice'])){
 	$choice = $_POST['choice'];
 

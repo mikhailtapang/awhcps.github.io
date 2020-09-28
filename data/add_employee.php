@@ -6,11 +6,9 @@ if(isset($_POST['data'])){
 	$fN = $data[0];
 	$mN = $data[1];
 	$lN = $data[2];
-	$pos = $data[3];
-	$off = $data[4];
-	$type = $data[5];
+	$type = $data[3];
 
-	$result['valid'] = $employee->insert_employee($fN, $mN, $lN, $pos, $off, $type);
+	$result['valid'] = $employee->insert_employee($fN, $mN, $lN, $type);
 	if($result['valid']){
 		$result['msg'] = 'New Employee Added Successfully!';
 		echo json_encode($result);
