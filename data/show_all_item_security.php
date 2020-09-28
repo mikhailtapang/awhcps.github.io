@@ -11,8 +11,8 @@ $allItemsec = $item->get_all_items();
 	<thead>
 	    <tr>
 	    	<th><center>Action</center></th>
-	    	<th>Account Number</th>
 	        <th>Plate Number</th>
+	    	<th>Account Number</th>
 	        <th>Owner</th>
 	        <th>Model</th>
 	        <th>Color</th>
@@ -43,8 +43,8 @@ $allItemsec = $item->get_all_items();
 						</button>
 					</div>
 				</td>
-				<td onclick="item_profile('<?php echo $i['item_id']; ?>');"><?php echo $i['account_number']; ?></td>
 				<td onclick="item_profile('<?php echo $i['item_id']; ?>');"><?php echo $i['item_name']; ?></td>
+				<td onclick="item_profile('<?php echo $i['item_id']; ?>');"><?php echo $i['account_number']; ?></td>
 				<td onclick="item_profile('<?php echo $i['item_id']; ?>');"><?php echo $i['item_amount']; ?></td>
 				<!-- <td onclick="item_profile('<?php echo $i['item_id']; ?>');"><?php echo $fullName; ?></td> -->
 				<td onclick="item_profile('<?php echo $i['item_id']; ?>');"><?php echo ucwords($i['item_modno']); ?> <?php echo ucwords($i['item_brand']); ?></td>
