@@ -81,17 +81,17 @@ $conditions = $item->item_conditions();
 					    <label class="control-label col-sm-3" for="violation">Violation:</label>
 					    <div class="col-sm-9"> 
 						    <select class="form-control" id="basic-multiple" name="states[]" multiple="multiple" style="width: 100%">
-							  <option value="1">Vehicle has no valid Parking Permit</option>
-							  <option value="2">Parked in No Parking Area/Space</option>
-							  <option value="3">Parked in Fire Lane</option>
-							  <option value="4">Improperly parked in bay</option>
-							  <option value="5">Parked in reserved or assigned space</option>
-							  <option value="6">Double Parking</option>
-							  <option value="7">Blocking driveway or access</option>
-							  <option value="8">Blocking other vehicle</option>
-							  <option value="9">Parked in two spaces</option>
-							  <option value="10">Parked in handicapped Space</option>
-							  <option value="11">Parked in Visitor's bay</option>
+							  <option value="Vehicle has no valid Parking Permit">Vehicle has no valid Parking Permit</option>
+							  <option value="Parked in No Parking Area/Space">Parked in No Parking Area/Space</option>
+							  <option value="Parked in Fire Lane">Parked in Fire Lane</option>
+							  <option value="Improperly parked in bay">Improperly parked in bay</option>
+							  <option value="Parked in reserved or assigned space">Parked in reserved or assigned space</option>
+							  <option value="Double Parking">Double Parking</option>
+							  <option value="Blocking driveway or access">Blocking driveway or access</option>
+							  <option value="Blocking other vehicle">Blocking other vehicle</option>
+							  <option value="Parked in two spaces">Parked in two spaces</option>
+							  <option value="Parked in handicapped Space">Parked in handicapped Space</option>
+							  <option value="Parked in Visitor's bay">Parked in Visitor's bay</option>
 							</select>
 					    </div>
 					  </div>

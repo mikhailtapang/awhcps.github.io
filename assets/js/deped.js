@@ -364,7 +364,7 @@ $(document).on('submit', '#add-violation-form', function(event) {
 	event.preventDefault();
 	/* Act on the event */
 	var validate = '';
-	var violations = $('#basic-multiple').val().toString();
+	var violations = $('#basic-multiple').val().toString().replace(/,/g, ", ");
 	var form_data = new Array(
 								$('input[id=driverName]'), 
 								$('input[id=dateApprehended]'), 
