@@ -33,8 +33,11 @@ $result = $item->violation_list();
  		$newLine = '<br/>';
  		$newstr = str_replace($violationArray, $newLine, $v);
  		$text_color = '';
+ 		$dateSeven = date('Y-m-d', strtotime('-7 days'));
+		$dateThirty = date('Y-m-d', strtotime('-1 month'));
+		$dateSixty = date('Y-m-d', strtotime('-2 month'));
  	 ?>
- 		<tr>
+ 		<tr <?php if($dA <= $dateThirty){echo 'class="danger"';} ?>>
  			<td align ='center'>
  				
  				<button onclick="add_payment('<?php echo $r['violation_id']; ?>');" class="btn btn-warning btn-sm" >

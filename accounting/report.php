@@ -1,6 +1,8 @@
+
 <?php 
 include_once('../data/admin_session.php');//check if naay session otherwise e return sa login
 include_once('../include/header.php'); ?>
+
 <?php include_once('../include/banner.php'); ?>
 
   <nav class="navbar navbar-inverse" style="margin-top:-18px;">
@@ -9,25 +11,24 @@ include_once('../include/header.php'); ?>
   	  <ul class="nav navbar-nav">
 <!--   	    <li>
           <a href="index.php"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a>
-        </li>
- -->     
-  	    <!--    <li>
-          <a href="item.php"><span class="glyphicon glyphicon-object-align-vertical"></span> Vehicle
+        </li> -->
+     
+<!--   	    <li>
+          <a href="item.php"><span class="glyphicon glyphicon-dashboard"></span> Vehicle
           </a>
         </li>
   	    
- 	    <li>
-          <a href="employee.php"><span class="glyphicon glyphicon-user"></span> Employee</a>
-        </li>
-
         <li>
+          <a href="employee.php"><span class="glyphicon glyphicon-user"></span> Employee</a>
+        </li> -->
+
+<!--         <li>
           <a href="position.php"><span class="glyphicon glyphicon-tasks"></span> Position</a>
         </li>
 
         <li>
           <a href="office.php"><span class="glyphicon glyphicon-home"></span> Office</a>
-        </li>
- -->
+        </li> -->
   	    <li>
           <a href="request.php"><span class="glyphicon glyphicon-tags"></span> Request</a>
         </li>
@@ -55,20 +56,28 @@ include_once('../include/header.php'); ?>
 
  			 	<div class="panel-heading">
         <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
-        All Item Status Report</div>
+        All Violations Report</div>
   	  			<div class="panel-body">
               <!-- main content -->
               <b>Filter:</b>
                 <select class="btn btn-default" id="report-choice">
                   <option value="all">All</option>
-                  <option value="working">Working</option>
-                  <option value="condemed">Condemed</option>
+                  <option value="today">All Violations Today</option>
+                  <option value="7">All Unpaid last 7 days</option>
+                  <option value="30">All Unpaid last 30 days</option>
+                  <option value="60">All Unpaid last 60 days</option>
                 </select>
                 
                 <button id="print-btn" type="button" class="btn btn-success">
                 PRINT
                 <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
                 </button>
+
+<!--                 <button id="pdf-btn" type="button" class="btn btn-success">
+                Download PDF
+                <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+                </button> -->
+
                 <div id="show-report"></div>
 
               <!-- /main content -->
@@ -80,6 +89,10 @@ include_once('../include/header.php'); ?>
   
 		</div>
 	</div>
+
+<!-- navigation menu -->
+
+<!-- navigation menu -->
 
 <!-- load all modals here -->
 <?php require_once('load_modals.php'); ?>
