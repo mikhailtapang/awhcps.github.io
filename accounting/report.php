@@ -56,13 +56,13 @@ include_once('../include/header.php'); ?>
 
  			 	<div class="panel-heading">
         <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
-        All Violations Report</div>
+        All Citations Report</div>
   	  			<div class="panel-body">
               <!-- main content -->
               <b>Filter:</b>
                 <select class="btn btn-default" id="report-choice">
                   <option value="all">All</option>
-                  <option value="today">All Violations Today</option>
+                  <option value="today">All Citations Today</option>
                   <option value="7">All Unpaid last 7 days</option>
                   <option value="30">All Unpaid last 30 days</option>
                   <option value="60">All Unpaid last 60 days</option>
