@@ -17,7 +17,7 @@
                 </li>
 
                 <li><a href="#modal-add-position" data-toggle="modal"><span class="glyphicon glyphicon-road"></span>
-                  Add Violation</a> 
+                  Add Citations</a> 
                 </li>
 <!-- 
                  <li><a href="#modal-add-office" data-toggle="modal"><span class="glyphicon glyphicon-tower"></span>

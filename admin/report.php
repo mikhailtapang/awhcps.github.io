@@ -62,7 +62,7 @@ include_once('../include/header.php'); ?>
               <b>Filter:</b>
                 <select class="btn btn-default" id="report-choice">
                   <option value="all">All</option>
-                  <option value="today">All Violations Today</option>
+                  <option value="today">All Citations Today</option>
                   <option value="7">All Unpaid last 7 days</option>
                   <option value="30">All Unpaid last 30 days</option>
                   <option value="60">All Unpaid last 60 days</option>

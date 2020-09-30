@@ -13,7 +13,7 @@ $conditions = $item->item_conditions();
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title">Add Violation</h4>
+				<h4 class="modal-title">Add Citation</h4>
 			</div>
 			<div class="modal-body">
 				<!-- main form -->
@@ -56,21 +56,21 @@ $conditions = $item->item_conditions();
 					  </div>
 					
 					  <div class="form-group">
-					    <label class="control-label col-sm-3" for="violationOfficer">Violation Officer:</label>
+					    <label class="control-label col-sm-3" for="violationOfficer">Citation Officer:</label>
 					    <div class="col-sm-9"> 
 					      <input type="text" class="form-control" id="violationOfficer" placeholder="Enter Violation Officer's Name">
 					    </div>
 					  </div>
 
 					  <div class="form-group">
-					    <label class="control-label col-sm-3" for="ticketNumber">Violation Ticket Number:</label>
+					    <label class="control-label col-sm-3" for="ticketNumber">Citation Ticket Number:</label>
 					    <div class="col-sm-9"> 
 					      <input type="text" step="any"  class="form-control" id="ticketNumber" placeholder="Enter Ticket Number">
 					    </div>
 					  </div>	
 
 					  <div class="form-group">
-					    <label class="control-label col-sm-3" for="violation">Violation:</label>
+					    <label class="control-label col-sm-3" for="violation">Citation:</label>
 					    <div class="col-sm-9"> 
 					      <input type="text" class="form-control" id="violation" placeholder="Enter Violation">
 					    </div>

@@ -30,7 +30,7 @@ include_once('../include/banner.php');
         </li> -->
 
         <li class="active">
-          <a href="request.php"><span class="glyphicon glyphicon-tags"></span> Violations</a>
+          <a href="request.php"><span class="glyphicon glyphicon-tags"></span> Citations</a>
         </li>
 
 <!--         <li>

@@ -3,7 +3,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title">Violations profile</h4>
+				<h4 class="modal-title">Citations profile</h4>
 			</div>
 			<div class="modal-body">
 				<form class="form-horizontal" role="form" id="profile-violations-form">
@@ -88,21 +88,21 @@
 					  </div>
 					
 					  <div class="form-group">
-					    <label class="control-label col-sm-3">Violation Officer:</label>
+					    <label class="control-label col-sm-3">Citation Officer:</label>
 					    <div class="col-sm-9"> 
 					      <input type="text" class="form-control violationOfficer-profile" disabled placeholder="Enter Violation Officer's Name">
 					    </div>
 					  </div>
 
 					  <div class="form-group">
-					    <label class="control-label col-sm-3">Violation Ticket Number:</label>
+					    <label class="control-label col-sm-3">Citation Ticket Number:</label>
 					    <div class="col-sm-9"> 
 					      <input type="text" step="any"  class="form-control ticketNumber-profile" disabled placeholder="Enter Ticket Number">
 					    </div>
 					  </div>	
 
 					  <div class="form-group">
-					    <label class="control-label col-sm-3">Violation:</label>
+					    <label class="control-label col-sm-3">Citation:</label>
 					    <div class="col-sm-9"> 
 					      <input type="text" class="form-control violation-profile" disabled placeholder="Enter Violation">
 					    </div>

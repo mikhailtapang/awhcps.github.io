@@ -49,7 +49,7 @@ $employees = $employee->get_employees();
 					  </div>
 
 					  <div class="form-group">
-					    <label class="control-label col-sm-3" for="ticketNumber-payment">Violation Ticket Number:</label>
+					    <label class="control-label col-sm-3" for="ticketNumber-payment">Citation Ticket Number:</label>
 					    <div class="col-sm-9"> 
 					      <input type="text" step="any"  class="form-control" id="ticketNumber-payment" disabled placeholder="Enter Ticket Number">
 					    </div>

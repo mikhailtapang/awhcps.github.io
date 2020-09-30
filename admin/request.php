@@ -29,7 +29,7 @@ include_once('../include/header.php'); ?>
         </li> -->
 
   	    <li class="active">
-          <a href="request.php"><span class="glyphicon glyphicon-tags"></span> Violations</a>
+          <a href="request.php"><span class="glyphicon glyphicon-tags"></span> Citations</a>
         </li>
 
   	    <li>
@@ -55,7 +55,7 @@ include_once('../include/header.php'); ?>
 
  			 	<div class="panel-heading">
         <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
-        Pending violations</div>
+        Pending Citations</div>
   	  			<div class="panel-body">
               <!-- main content -->
                 <div id="myTable-violations"></div>
