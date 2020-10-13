@@ -1,6 +1,6 @@
 <?php 
 require_once('../class/Employee.php'); 
-$employees = $employee->get_employees(true);
+$employees = $employee->get_employees();
 // echo '<pre>';
 // 	print_r($employees);
 // echo '</pre>';
@@ -23,8 +23,8 @@ $employees = $employee->get_employees(true);
 				$mN = $mN[0].'.';
 				$fullName = $emp['emp_fname'].' '.$mN.' '.$emp['emp_lname'];
 				$type = $emp['type_desc'];
-				$off = $emp['off_desc'];
-				$work_here = $emp['emp_at_deped'];
+				// $off = $emp['off_desc'];
+				// $work_here = $emp['emp_at_deped'];
 				$emp_id = $emp['emp_id'];
 		?>
 			<tr>
@@ -41,7 +41,7 @@ $employees = $employee->get_employees(true);
 				</td>
 
 				<td align="center" width="180px">
-							<button type="button" onclick="edit_employee_fill('<?php echo $emp_id; ?>');" class="btn btn-warning btn-xs" <?php echo $work_here ? '':'disabled'; ?> >
+							<button type="button" onclick="edit_employee_fill('<?php echo $emp_id; ?>');" class="btn btn-warning btn-xs" 	>
 							<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
 							Edit</button>
 

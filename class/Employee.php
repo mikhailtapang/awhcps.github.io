@@ -57,31 +57,33 @@ class Employee extends Database implements iEmployee {
 		return $this->getRow($sql, [$emp_id]);
 	}
 
-	public function get_employees($inner_joined = false)
+	public function get_employees()
 	{
 		$still_work_here = true;
-		if(!$inner_joined){
-			$sql = "SELECT * 
-					FROM tbl_employee
-					WHERE emp_at_deped = ?
-					ORDER BY emp_fname;
-			";
-			return $this->getRows($sql, [$still_work_here]);
-		}else{
-			//get all including FK
+		// if(!$inner_joined){
 			$sql = "SELECT * 
 					FROM tbl_employee e
-					INNER JOIN tbl_pos p
-					ON e.pos_id = p.pos_id
-					INNER JOIN tbl_off o 
-					ON e.off_id = o.off_id 
+					-- WHERE emp_at_deped = ?
 					INNER JOIN tbl_emp_type t 
 					ON e.type_id = t.type_id
-					WHERE e.emp_at_deped = ?
 					ORDER BY e.emp_fname;
 			";
-			return $this->getRows($sql, [$still_work_here]);
-		}
+			return $this->getRows($sql);
+		// }else{
+		// 	//get all including FK
+		// 	$sql = "SELECT * 
+		// 			FROM tbl_employee e
+		// 			INNER JOIN tbl_pos p
+		// 			ON e.pos_id = p.pos_id
+		// 			INNER JOIN tbl_off o 
+		// 			ON e.off_id = o.off_id 
+		// 			INNER JOIN tbl_emp_type t 
+		// 			ON e.type_id = t.type_id
+		// 			WHERE e.emp_at_deped = ?
+		// 			ORDER BY e.emp_fname;
+		// 	";
+		// 	return $this->getRows($sql, [$still_work_here]);
+		// }
 	}
 		
 	public function employee_positions()

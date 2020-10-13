@@ -12,10 +12,12 @@ $allItemsec = $item->get_all_items();
 	    <tr>
 	    	<th><center>Action</center></th>
 	        <th>Plate Number</th>
-	    	<th>Account Number</th>
-	        <th>Owner</th>
-	        <th>Model</th>
 	        <th>Color</th>
+<!-- 	    	<th>Account Number</th> -->
+<!-- 	        <th>Owner</th> -->
+	        <th>Model</th>
+	        <th>Sticker Type</th>
+	        <th>Sticker Number</th>
 	    </tr>
 	</thead>
     <tbody>
@@ -30,30 +32,32 @@ $allItemsec = $item->get_all_items();
 				// $fullName = ucwords($fullName);
 
 		?> 
-			<tr>
+			<tr>	
 				<td align="center" style='white-space: nowrap'>
     				<div class="col-sm">
-						<button class="btn btn-success btn-sm" onclick="item_profile('<?php echo $i['item_id']; ?>');">
+<!-- 						<button class="btn btn-success btn-sm" onclick="item_profile('<?php echo $i['item_id']; ?>');">
 						<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
 						View
-						</button>
+						</button> -->
 						<button onclick="add_violation('<?php echo $i['item_id']; ?>')" class="btn btn-danger btn-sm" >
-						<span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span>
+						<span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span>																																					
 						Tag
 						</button>
 					</div>
 				</td>
-				<td onclick="item_profile('<?php echo $i['item_id']; ?>');"><?php echo $i['item_name']; ?></td>
-				<td onclick="item_profile('<?php echo $i['item_id']; ?>');"><?php echo $i['account_number']; ?></td>
-				<td onclick="item_profile('<?php echo $i['item_id']; ?>');"><?php echo $i['item_amount']; ?></td>
+				<td ><?php echo $i['item_name']; ?></td>
+				<td><?php echo $i['item_name']; ?></td>
+<!-- 				<td><?php echo $i['account_number']; ?></td> -->
+				<!-- <td><?php echo $i['item_amount']; ?></td> -->
 				<!-- <td onclick="item_profile('<?php echo $i['item_id']; ?>');"><?php echo $fullName; ?></td> -->
-				<td onclick="item_profile('<?php echo $i['item_id']; ?>');"><?php echo ucwords($i['item_modno']); ?> <?php echo ucwords($i['item_brand']); ?></td>
-				<td onclick="item_profile('<?php echo $i['item_id']; ?>');"><?php echo ucwords($i['item_serno']); ?></td>
+				<td><?php echo ucwords($i['item_modno']); ?> <?php echo ucwords($i['item_brand']); ?></td>
+				<td><?php echo ucwords($i['vehicle_sticker_type']); ?></td>
+				<td><?php echo ucwords($i['vehicle_sticker_number']); ?></td>
 
 
 			</tr>
 		<?php		
-			}//end foreach
+			}//end foreach 
 		 ?>
     </tbody>
 </table>

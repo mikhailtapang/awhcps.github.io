@@ -7,15 +7,15 @@ include_once('../include/header.php'); ?>
   	<div class="container-fluid">
    	 
   	  <ul class="nav navbar-nav">
-  	    <li>
+<!--   	    <li>
           <a href="index.php"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a>
-        </li>
+        </li> -->
      
   	    <li>
-          <a href="item.php"><span class="glyphicon glyphicon-object-align-vertical"></span> Vehicles</a>
+          <a href="item.php"><span class="glyphicon glyphicon-dashboard"></span> Vehicles</a>
         </li>
   	    
-        <li>
+        <li class="active">
           <a href="employee.php"><span class="glyphicon glyphicon-user"></span> Employee</a>
         </li>
 
@@ -28,7 +28,7 @@ include_once('../include/header.php'); ?>
         </li> -->
 
   	    <li>
-          <a href="request.php"><span class="glyphicon glyphicon-tags"></span> Request</a>
+          <a href="request.php"><span class="glyphicon glyphicon-tags"></span> Citations</a>
         </li>
 
   	    <li>

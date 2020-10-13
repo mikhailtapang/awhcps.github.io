@@ -30,7 +30,7 @@ include_once('../include/header.php'); ?>
           <a href="office.php"><span class="glyphicon glyphicon-home"></span> Office</a>
         </li> -->
   	    <li>
-          <a href="request.php"><span class="glyphicon glyphicon-tags"></span> Request</a>
+          <a href="request.php"><span class="glyphicon glyphicon-tags"></span> Citations</a>
         </li>
 
   	    <li class="active">

@@ -4,7 +4,7 @@ interface iEmployee{
 	public function insert_employee($fN, $mN, $lN, $type);
 	public function update_employee($fN, $mN, $lN, $type, $eid);
 	public function get_employee($emp_id);
-	public function get_employees($inner_joined = false);
+	public function get_employees();
 	public function employee_positions();
 	public function employee_offices();
 	public function employee_account_types();

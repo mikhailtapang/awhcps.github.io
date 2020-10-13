@@ -22,16 +22,16 @@ $conditions = $item->item_conditions();
 					<input type="hidden" id="iID">
 
 					  <div class="form-group">
-					    <label class="control-label col-sm-3" for="accountNumber-violation">Account Number:</label>
+					    <!-- <label class="control-label col-sm-3" for="accountNumber-violation">Account Number:</label> -->
 					    <div class="col-sm-9">
-					      <input type="text" class="form-control" id="accountNumber-violation" disabled placeholder="Enter Account Number">
+					      <input type="hidden" class="form-control" id="accountNumber-violation" disabled placeholder="Enter Account Number">
 					    </div>
 					  </div>
 
 					  <div class="form-group">
-					    <label class="control-label col-sm-3" for="ownerName">Owner:</label>
+					    <!-- <label class="control-label col-sm-3" for="ownerName">Owner:</label> -->
 					    <div class="col-sm-9">
-					      <input type="text" class="form-control" id="ownerName" disabled placeholder="Enter Owner's Address">
+					      <input type="hidden" class="form-control" id="ownerName" disabled placeholder="Enter Owner's Address">
 					    </div>
 					  </div>
 
